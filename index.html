@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sam's Websites &amp; CVs</title>
+<meta name="description" content="Websites from R1,500, website fixes and CV rewrites by Samuel Olajide. Compare Basic, Advanced and Pro packages and see example sites.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sam-websites.netlify.app/">
+<meta property="og:title" content="Websites from R1,500 · CVs · Website fixes">
+<meta property="og:description" content="Compare Basic, Advanced and Pro side by side and try 6 example sites. WhatsApp Sam: 078 756 9592.">
+<meta property="og:image" content="https://sam-websites.netlify.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFD400">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}html{scroll-behavior:smooth}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+/* Layout: poster-matched brand; a single scrolling page, three aligned package columns that stack on phones */
+:root{
+  --bg:#EFECE3; --surface:#FFFFFF; --fg:#111111; --muted:#5B5850; --line:#111111;
+  --accent:#FFD400; --on-accent:#111111; --pro-bg:#111111; --pro-fg:#EFECE3; --pro-muted:#B9B5AA;
+  --soft:#E3DFD3;
+  --display:'Archivo Black', 'Arial Black', Impact, sans-serif;
+  --body:'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131311; --surface:#1D1C19; --fg:#EFECE3; --muted:#ABA79C; --line:#EFECE3;
+  --accent:#FFD400; --on-accent:#111111; --pro-bg:#EFECE3; --pro-fg:#111111; --pro-muted:#4E4B44;
+  --soft:#2A2925; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#131311; --surface:#1D1C19; --fg:#EFECE3; --muted:#ABA79C; --line:#EFECE3;
+  --accent:#FFD400; --on-accent:#111111; --pro-bg:#EFECE3; --pro-fg:#111111; --pro-muted:#4E4B44;
+  --soft:#2A2925; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-0.01em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.top{border-bottom:3px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px}
+.brand{font-family:var(--display);font-size:20px}
+.brand span{background:var(--accent);color:var(--on-accent);padding:0 6px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;
+  font-family:var(--body);font-weight:700;font-size:16px;text-decoration:none;border:3px solid var(--line);
+  background:var(--accent);color:var(--on-accent);cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--line)}
+.btn.ghost{background:transparent;color:var(--fg)}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+.hero .wrap{display:flex;flex-direction:column;gap:18px;padding-block:44px 32px}
+.eyebrow{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:14px}
+.hero h1{font-size:clamp(40px,8vw,84px);line-height:.95;max-width:14ch}
+.hero p{margin:0;font-size:19px;max-width:56ch}
+.jump{display:flex;flex-wrap:wrap;gap:10px}
+
+section{padding-block:36px}
+.sec-head{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.sec-head h2{font-size:clamp(32px,5vw,52px);line-height:1}
+.sec-head p{margin:0;color:var(--muted);max-width:60ch;font-size:17px}
+
+/* package columns: rows line up across cards via subgrid */
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;grid-auto-rows:auto}
+.tier{display:grid;grid-template-rows:subgrid;grid-row:span 14;border:3px solid var(--line);background:var(--surface);gap:0}
+.tier.pro{background:var(--pro-bg);color:var(--pro-fg);border-color:var(--pro-bg)}
+.tier-head{padding:20px 20px 16px;display:flex;flex-direction:column;gap:6px;border-bottom:3px solid var(--line)}
+.tier.pro .tier-head{border-color:var(--pro-fg)}
+.tier-name{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tier-name h3{font-size:32px}
+.price{font-family:var(--display);font-size:30px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price small{font-family:var(--body);font-size:14px;font-weight:700}
+.tier.pro h3{color:var(--accent)}
+:root[data-theme="dark"] .tier.pro h3{color:var(--pro-fg);background:var(--accent);padding:0 6px;color:#111}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tier.pro h3{background:var(--accent);padding:0 6px;color:#111}}
+.for{margin:0;font-size:15px;color:var(--muted)}
+.tier.pro .for{color:var(--pro-muted)}
+.row{padding:12px 20px;border-bottom:1px solid var(--soft);display:flex;flex-direction:column;gap:2px;min-width:0}
+.tier.pro .row{border-color:color-mix(in srgb, var(--pro-fg) 18%, transparent)}
+.lab{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tier.pro .lab{color:var(--pro-muted)}
+.val{font-size:16px;font-weight:500}
+.no{color:var(--muted);font-weight:400}
+.tier.pro .no{color:var(--pro-muted)}
+.up{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--accent);color:var(--on-accent);padding:1px 6px;vertical-align:2px}
+.tier-foot{padding:18px 20px 20px;display:flex;flex-direction:column;justify-content:end;gap:4px}
+.tier-foot .btn{width:100%}
+.tier.pro .btn{border-color:var(--accent)}
+
+@media (max-width:860px){
+  .tiers{grid-template-columns:minmax(0,1fr)}
+}
+
+.note{margin-top:16px;color:var(--muted);font-size:15px}
+
+/* examples */
+.exgroups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media(max-width:860px){.exgroups{grid-template-columns:minmax(0,1fr)}}
+.exg{display:flex;flex-direction:column;gap:10px;min-width:0}
+.exg-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:3px solid var(--line);padding-bottom:6px}
+.exg-h b{font-family:var(--display);font-weight:400;font-size:24px}
+.exg-h span{color:var(--muted);font-size:14px}
+.ex{display:flex;gap:14px;align-items:center;padding:12px;border:3px solid var(--line);background:var(--surface);text-decoration:none;color:var(--fg);min-height:72px}
+.ex:hover{box-shadow:4px 4px 0 var(--line);transform:translate(-2px,-2px)}
+@media (prefers-reduced-motion:reduce){.ex:hover{transform:none}}
+.ex .sw{flex:0 0 56px;height:56px;display:block}
+.ex b{display:block;font-size:17px}
+.ex small{color:var(--muted);font-size:14px}
+.ex::after{content:"→";margin-left:auto;font-weight:700;font-size:20px}
+.seeex{display:block;text-align:center;margin-top:10px;font-weight:700}
+
+/* plain-English terms */
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;border-top:3px solid var(--line)}
+.term{padding:16px 0;border-bottom:1px solid var(--soft);display:flex;flex-direction:column;gap:4px;padding-right:20px;min-width:0}
+.term b{font-size:17px}
+.term span{color:var(--muted)}
+
+/* services list */
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.services{grid-template-columns:minmax(0,1fr)}}
+.svc{border:3px solid var(--line);background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc h3{font-size:28px}
+.svc p{margin:0}
+.lines{display:flex;flex-direction:column;border-top:2px solid var(--line)}
+.line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:2px solid var(--line);font-weight:700}
+.line span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+ul.plain{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+
+.contact{background:var(--accent);color:var(--on-accent);margin-top:20px}
+.contact .wrap{padding-block:40px;display:flex;flex-direction:column;gap:14px}
+.contact h2{font-size:clamp(32px,6vw,60px);line-height:1}
+.num{font-family:var(--display);font-size:clamp(36px,8vw,64px);line-height:1;user-select:all;font-variant-numeric:tabular-nums}
+.contact .row2{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.contact .btn{background:#111;color:#FFD400;border-color:#111}
+.contact .btn.ghost{background:transparent;color:#111}
+.contact .btn:hover{box-shadow:4px 4px 0 #111}
+.copied{font-weight:700}
+footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><span>Sam</span> builds websites</div>
+    <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I%20scanned%20your%20poster." target="_blank" rel="noopener">WhatsApp me</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">You scanned it. Good.</span>
+      <h1>Websites, website fixes and CVs.</h1>
+      <p>Every package below lists exactly what you get, line by line, in the same order. Compare them, pick one, and message me. If you're not sure which fits, ask and I'll tell you honestly.</p>
+      <div class="jump">
+        <a class="btn ghost" href="#websites">New website</a>
+        <a class="btn ghost" href="#examples">Example sites</a>
+        <a class="btn ghost" href="#fix">Fix my website</a>
+        <a class="btn ghost" href="#cv">CVs</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="websites">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">New website</span>
+        <h2>Basic, Advanced or Pro</h2>
+        <p>Read across a row to see what changes as you move up. A yellow tag marks what a package adds over the one before it.</p>
+      </div>
+
+      <div class="tiers">
+        <!-- BASIC -->
+        <article class="tier" aria-labelledby="t-basic">
+          <div class="tier-head">
+            <div class="tier-name"><h3 id="t-basic">Basic</h3><span class="price">R1,500</span></div>
+            <p class="for">For: a salon, tuck shop, tutor or plumber who just needs to be found online.</p>
+          </div>
+          <div class="row"><span class="lab">Pages</span><span class="val">1 page. Everything on one screen you scroll down.</span></div>
+          <div class="row"><span class="lab">Photos</span><span class="val">Up to 6 photos placed on your page</span></div>
+          <div class="row"><span class="lab">Prices</span><span class="val">Short price list, up to 10 items</span></div>
+          <div class="row"><span class="lab">How customers reach you</span><span class="val">WhatsApp button, phone number, Google Maps pin</span></div>
+          <div class="row"><span class="lab">Contact form</span><span class="val no">Not included</span></div>
+          <div class="row"><span class="lab">Online payments &amp; orders</span><span class="val no">Not included</span></div>
+          <div class="row"><span class="lab">Web address</span><span class="val">Free address (yourbusiness.netlify.app)</span></div>
+          <div class="row"><span class="lab">Google search</span><span class="val">Your location pin on the site</span></div>
+          <div class="row"><span class="lab">Design</span><span class="val">Clean ready-made layout in your colours and logo</span></div>
+          <div class="row"><span class="lab">Animation</span><span class="val">Simple fade-ins as the page loads</span></div>
+          <div class="row"><span class="lab">Changes after I show you</span><span class="val">1 round</span></div>
+          <div class="row"><span class="lab">Ready in</span><span class="val">3 days</span></div>
+          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Basic%20website%20(R1%2C500)." target="_blank" rel="noopener">Ask about Basic</a><a class="seeex" href="#examples">See 2 Basic examples</a></div>
+        </article>
+
+        <!-- ADVANCED -->
+        <article class="tier" aria-labelledby="t-adv">
+          <div class="tier-head">
+            <div class="tier-name"><h3 id="t-adv">Advanced</h3><span class="price">R3,500</span></div>
+            <p class="for">For: a restaurant, studio or small company that wants to look established and take enquiries.</p>
+          </div>
+          <div class="row"><span class="lab">Pages</span><span class="val">Up to 5 separate pages (e.g. Home, About, Services, Gallery, Contact)<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Photos</span><span class="val">A Gallery page with up to 30 photos. Customers tap a photo to see it full-size.<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Prices</span><span class="val">Full menu or price list on its own page, split into sections<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">How customers reach you</span><span class="val">Everything in Basic</span></div>
+          <div class="row"><span class="lab">Contact form</span><span class="val">Booking or enquiry form. Messages go straight to your email.<span class="up">New</span></span></div>
+          <div class="row"><span class="lab">Online payments &amp; orders</span><span class="val no">Not included</span></div>
+          <div class="row"><span class="lab">Web address</span><span class="val">Your own name, like yourbusiness.co.za*<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Google search</span><span class="val">Google Business profile set up, plus basic SEO so you show up in searches<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Design</span><span class="val">Designed from scratch for your brand<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Animation</span><span class="val">Smooth scrolling, headlines that slide in word by word, photos that reveal as you scroll<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Changes after I show you</span><span class="val">2 rounds</span></div>
+          <div class="row"><span class="lab">Ready in</span><span class="val">About 1 week</span></div>
+          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Advanced%20website%20(R3%2C500)." target="_blank" rel="noopener">Ask about Advanced</a><a class="seeex" href="#examples">See 2 Advanced examples</a></div>
+        </article>
+
+        <!-- PRO -->
+        <article class="tier pro" aria-labelledby="t-pro">
+          <div class="tier-head">
+            <div class="tier-name"><h3 id="t-pro">Pro</h3><span class="price"><small>from </small>R7,500</span></div>
+            <p class="for">For: a business that wants to sell, take orders or take paid bookings online.</p>
+          </div>
+          <div class="row"><span class="lab">Pages</span><span class="val">Everything in Advanced, plus shop or booking pages</span></div>
+          <div class="row"><span class="lab">Photos</span><span class="val">Gallery, plus a photo for every product or service<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Prices</span><span class="val">Products customers can add to a cart and buy<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">How customers reach you</span><span class="val">Everything in Advanced</span></div>
+          <div class="row"><span class="lab">Contact form</span><span class="val">Bookings or orders that are paid upfront<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Online payments &amp; orders</span><span class="val">Card and EFT payments, customer accounts, and your own dashboard to see orders and stats<span class="up">New</span></span></div>
+          <div class="row"><span class="lab">Web address</span><span class="val">Your own .co.za*</span></div>
+          <div class="row"><span class="lab">Google search</span><span class="val">Same as Advanced</span></div>
+          <div class="row"><span class="lab">Design</span><span class="val">Designed from scratch for your brand</span></div>
+          <div class="row"><span class="lab">Animation</span><span class="val">A scroll story: your product comes apart or comes to life as customers scroll, plus premium effects<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Changes after I show you</span><span class="val">2 rounds, plus 30 days of support after launch<span class="up">Upgrade</span></span></div>
+          <div class="row"><span class="lab">Ready in</span><span class="val">2 to 3 weeks</span></div>
+          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Pro%20website%20(from%20R7%2C500)." target="_blank" rel="noopener">Ask about Pro</a><a class="seeex" href="#examples" style="color:var(--pro-fg)">See 2 Pro examples</a></div>
+        </article>
+      </div>
+
+      <p class="note">*A .co.za name costs about R100 a year, paid by you, so it stays yours. Pro starts at R7,500; the final price depends on how many products and features you need, and I'll quote it before we start. A monthly care plan (updates and fixes after launch) is available on any package.</p>
+    </div>
+  </section>
+
+  <section id="examples" aria-labelledby="ex-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Try before you buy</span>
+        <h2 id="ex-h">Example websites</h2>
+        <p>Two sample sites for each package, each in a different style. Tap around: the menus, galleries, forms and carts all work. They're made-up businesses, so your site would use your name, photos and prices.</p>
+      </div>
+      <div class="exgroups">
+        <div class="exg">
+          <div class="exg-h"><b>Basic</b><span>One page · light motion</span></div>
+          <a class="ex" href="ex-basic-salon.html"><span class="sw" style="background:linear-gradient(140deg,#7A3A4E,#C2577A)"></span><span><b>Thandi's Braids</b><small>Hair salon · soft and elegant</small></span></a>
+          <a class="ex" href="ex-basic-plumber.html"><span class="sw" style="background:linear-gradient(140deg,#0B4FD6 60%,#FF7A1A 60%)"></span><span><b>Mokoena Plumbing</b><small>Trade service · bold and direct</small></span></a>
+        </div>
+        <div class="exg">
+          <div class="exg-h"><b>Advanced</b><span>5 pages · smooth scroll</span></div>
+          <a class="ex" href="ex-adv-grill.html"><span class="sw" style="background:radial-gradient(ellipse at 50% 100%,#E9A23B,#C4502A 35%,#16110D 70%)"></span><span><b>Kasi Grill House</b><small>Restaurant · dark and warm</small></span></a>
+          <a class="ex" href="ex-adv-studio.html"><span class="sw" style="background:linear-gradient(140deg,#fff 55%,#3D5AFE 55%);border:1px solid #ccc"></span><span><b>Naledi Photo Studio</b><small>Photographer · clean and minimal</small></span></a>
+        </div>
+        <div class="exg">
+          <div class="exg-h"><b>Pro</b><span>Sell online · scroll story</span></div>
+          <a class="ex" href="ex-pro-shop.html"><span class="sw" style="background:linear-gradient(140deg,#3F4F2A 55%,#B5532E 55%)"></span><span><b>Ubuntu Threads</b><small>Clothing shop · cart, checkout, dashboard</small></span></a>
+          <a class="ex" href="ex-pro-gym.html"><span class="sw" style="background:linear-gradient(140deg,#0F1B33 55%,#FF6B57 55%)"></span><span><b>Pulse Fitness</b><small>Gym · paid class bookings, memberships</small></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="terms-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="terms-h">What the words mean</h2>
+      </div>
+      <div class="terms">
+        <div class="term"><b>Page</b><span>One screen of your website with its own link. Basic puts everything on one page; Advanced splits it into separate pages people can tap between.</span></div>
+        <div class="term"><b>Gallery</b><span>A page made only for photos, shown in a grid. Tap one and it opens full-size. Basic doesn't have this; its photos sit inside the one page.</span></div>
+        <div class="term"><b>Web address (domain)</b><span>What people type to find you. A .co.za is your own name and looks more professional than a free address.</span></div>
+        <div class="term"><b>Google Business profile</b><span>The box with your hours, photos and reviews that shows up on Google and Google Maps.</span></div>
+        <div class="term"><b>SEO</b><span>Setting up your site so Google understands it, which helps you show up when people search.</span></div>
+        <div class="term"><b>Round of changes</b><span>I show you the site, you send me a list of everything you want changed, and I fix it all in one go.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fix" aria-labelledby="fix-h">
+    <div class="wrap services">
+      <div class="svc">
+        <span class="eyebrow">Already have a website?</span>
+        <h3 id="fix-h">Fix my website</h3>
+        <p>Send me the link and tell me what's wrong. I'll look at it and quote you before I touch anything.</p>
+        <ul class="plain">
+          <li>Broken links, buttons or forms</li>
+          <li>Looks bad or breaks on phones</li>
+          <li>Old prices, photos or contact details</li>
+          <li>Slow to load</li>
+          <li>Not showing up on Google</li>
+        </ul>
+        <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I%20need%20my%20website%20fixed.%20Here's%20the%20link%3A%20" target="_blank" rel="noopener">Send me your link</a>
+      </div>
+
+      <div class="svc" id="cv">
+        <span class="eyebrow">Ready in 24 hours</span>
+        <h3>CVs &amp; cover letters</h3>
+        <p>Recruiters skim. I rewrite your CV so the important things are easy to see and it gets you the interview.</p>
+        <div class="lines">
+          <div class="line"><span>CV rewrite</span><span>Price on WhatsApp</span></div>
+          <div class="line"><span>Cover letter</span><span>Price on WhatsApp</span></div>
+          <div class="line"><span>LinkedIn profile</span><span>Price on WhatsApp</span></div>
+        </div>
+        <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'd%20like%20help%20with%20my%20CV." target="_blank" rel="noopener">Ask about CVs</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" aria-labelledby="c-h">
+  <div class="wrap">
+    <h2 id="c-h">Not sure which one? Ask me.</h2>
+    <div class="num" id="num">078 756 9592</div>
+    <div class="row2">
+      <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I%20scanned%20your%20poster%20and%20have%20a%20question." target="_blank" rel="noopener">WhatsApp me</a>
+      <button class="btn ghost" id="copy" type="button">Copy number</button>
+      <span class="copied" id="copied" role="status"></span>
+    </div>
+    <span>Samuel Olajide</span>
+  </div>
+</section>
+
+<footer><div class="wrap">Websites · Website fixes · CVs · Samuel Olajide</div></footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function(){
+  var out = document.getElementById('copied');
+  var text = '0787569592';
+  function fallback(){
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('num'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    out.textContent = 'Selected. Copy it from here.';
+  }
+  try {
+    navigator.clipboard.writeText(text).then(function(){ out.textContent = 'Copied'; }, fallback);
+  } catch(e){ fallback(); }
+});
+</script>
+
+</body>
+</html>

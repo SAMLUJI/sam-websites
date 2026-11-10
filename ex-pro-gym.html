@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pulse Fitness Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#0F1B33;--panel:#17264A;--panel2:#1E3060;--ink:#F2F4FA;--muted:#A9B4CF;--coral:#FF6B57;--mint:#5FD3B0;--line:#2B3D6B;
+  --head:'Oswald','Arial Narrow',sans-serif;--body:'Inter',system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-bottom:env(safe-area-inset-bottom,0px)}
+.sambar{background:#FFD400;color:#111;font:700 13px/1.3 system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));padding-top:max(10px,env(safe-area-inset-top,0px));display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.sambar button{font:inherit;background:#111;color:#FFD400;border:0;padding:8px 12px;min-height:36px;cursor:pointer}
+.wrap{max-width:1150px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--head);font-weight:700;text-transform:uppercase;margin:0;line-height:1;letter-spacing:.01em}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+button{font-family:var(--body)}
+header{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-block:12px}
+.logo{font-family:var(--head);font-weight:700;font-size:24px;letter-spacing:.04em}
+.logo span{color:var(--coral)}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav button{background:none;border:0;color:var(--muted);font-weight:500;font-size:15px;padding:10px 12px;min-height:44px;cursor:pointer;border-radius:8px}
+.nav button[aria-current="page"]{background:var(--panel2);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;background:var(--coral);color:#1A0E0B;border:0;border-radius:10px;font-weight:600;font-size:16px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:disabled{background:var(--line);color:var(--muted);cursor:not-allowed}
+.view{padding-block:32px 56px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;margin-bottom:36px}
+@media(max-width:780px){.hero{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(52px,9vw,110px)}
+.hero h1 span{color:var(--coral)}
+.hero p{color:var(--muted);font-size:18px;max-width:42ch;margin:16px 0 0}
+.hph{aspect-ratio:16/11;border-radius:16px;background:radial-gradient(circle at 70% 30%,rgba(255,107,87,.7),transparent 50%),linear-gradient(140deg,#1E3060,#0B1326);display:flex;align-items:flex-end;padding:12px;font-size:13px}
+.hph span{background:rgba(0,0,0,.45);padding:2px 8px;border-radius:999px}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.sec-h h2{font-size:clamp(34px,5vw,52px)}
+.days{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px}
+.days button{flex:0 0 auto;background:var(--panel);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:8px 14px;min-height:56px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.days button small{color:var(--muted);font-size:12px}
+.days button[aria-pressed="true"]{border-color:var(--coral);background:var(--panel2)}
+.classes{display:flex;flex-direction:column;gap:10px}
+.cls{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center}
+@media(max-width:600px){.cls{grid-template-columns:70px 1fr}.cls .btn{grid-column:1/-1}}
+.time{font-family:var(--head);font-size:26px;line-height:1}
+.time small{display:block;font-family:var(--body);font-size:12px;color:var(--muted);margin-top:4px}
+.cls h3{font-size:22px}
+.meta{color:var(--muted);font-size:14px}
+.spots{font-size:13px;font-weight:600}
+.spots.low{color:var(--coral)}.spots.ok{color:var(--mint)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:820px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--panel);border:1.5px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.plan.hot{border-color:var(--coral)}
+.plan .pr{font-family:var(--head);font-size:44px}
+.plan .pr small{font-family:var(--body);font-size:15px;color:var(--muted)}
+.plan ul{margin:0;padding-left:18px;color:var(--muted);flex:1}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:600;background:rgba(95,211,176,.15);color:var(--mint)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.stat b{font-family:var(--head);font-size:34px;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.dash{grid-template-columns:1fr}}
+.fill{display:flex;flex-direction:column;gap:12px}
+.fr{display:grid;grid-template-columns:110px 1fr 46px;gap:10px;align-items:center;font-size:14px}
+.track{height:12px;background:var(--bg);border-radius:999px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--mint);border-radius:999px}
+.track i.full{background:var(--coral)}
+.ownerflag{background:var(--panel2);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:18px}
+/* booking sheet */
+.scrim{position:fixed;inset:0;background:rgba(5,10,22,.7);z-index:15}
+.sheet{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100vw);background:var(--panel);border:1px solid var(--line);border-radius:20px 20px 0 0;z-index:16;
+  padding:22px max(20px,env(safe-area-inset-right,0px)) max(22px,env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:14px}
+.sheet h3{font-size:28px}
+.pay{display:grid;gap:8px}
+.pay label{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:12px;padding:12px;min-height:52px;cursor:pointer}
+.small{font-size:13px;color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.toast{background:rgba(95,211,176,.12);border:1px solid var(--mint);color:var(--ink);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+/* Pro-level motion: pinned heart-rate story */
+.stage{position:relative;height:340vh;margin-bottom:30px}
+.pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.glow{position:absolute;left:50%;top:50%;width:80vmin;height:80vmin;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(255,107,87,.35),transparent);pointer-events:none}
+.phase{font:700 clamp(54px,12vw,150px)/.9 var(--head);text-transform:uppercase;letter-spacing:.01em;position:relative}
+.bpm{display:flex;align-items:baseline;gap:10px;position:relative}
+.bpm b{font:700 clamp(40px,7vw,80px)/1 var(--head);color:var(--coral);font-variant-numeric:tabular-nums}
+.bpm span{color:var(--muted);letter-spacing:.2em;font-size:14px}
+.ecg{width:100%;height:clamp(110px,20vh,200px);position:relative}
+.pcap{margin:0;color:var(--muted);font-size:18px;max-width:46ch;position:relative;min-height:3.2em}
+.phints{display:flex;gap:8px}
+.phints i{width:36px;height:5px;border-radius:5px;background:var(--line);transition:background .3s}
+.phints i.on{background:var(--coral)}
+.cur{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--coral);pointer-events:none;z-index:50;transition:width .2s,height .2s;display:none}
+.cur.grow{width:46px;height:46px;background:rgba(255,107,87,.25)}
+@media (hover:hover) and (pointer:fine){.cur{display:block}}
+.cls{transition:transform .25s,border-color .25s}
+.cls:hover{transform:translateX(6px);border-color:var(--coral)}
+@media (prefers-reduced-motion:reduce){.cur{display:none!important}.cls:hover{transform:none}}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="sambar"><span>Example website · PRO package (from R7,500) · paid bookings, member accounts, owner dashboard</span><button type="button" onclick="location.href='/#examples'">← Back to packages</button></div>
+
+<header>
+  <div class="wrap">
+    <div class="logo">PULSE<span>.</span>FITNESS</div>
+    <div class="nav" role="navigation" aria-label="Pages">
+      <button type="button" data-v="classes" aria-current="page">Classes</button>
+      <button type="button" data-v="plans">Memberships</button>
+      <button type="button" data-v="mine">My bookings</button>
+      <button type="button" data-v="dash">Owner dashboard</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="view" id="v-classes">
+    <div class="hero">
+      <div>
+        <h1>Book it. <span>Pay it.</span> Show up.</h1>
+        <p>Small-group classes in Akasia, max 12 people. Pick a class, pay online, and your spot is held. No WhatsApp back-and-forth.</p>
+      </div>
+      <div class="hph" role="img" aria-label="Photo placeholder: class in the studio"><span>Studio photo</span></div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="pin">
+        <div class="glow" id="glow" aria-hidden="true"></div>
+        <div class="phase" id="phase">WARM UP</div>
+        <div class="bpm"><b id="bpm">72</b><span>BPM</span></div>
+        <svg class="ecg" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+          <path id="ecgbg" d="" fill="none" stroke="#2B3D6B" stroke-width="3"/>
+          <path id="ecg" d="" fill="none" stroke="#FF6B57" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <p class="pcap" id="pcap">Every class starts easy. Five minutes to get the blood moving.</p>
+        <div class="phints" id="phints"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div id="toast"></div>
+    <div class="sec-h"><h2>This week's classes</h2><span class="small">R80 per class, or unlimited with a membership</span></div>
+    <div class="days" id="days"></div>
+    <div class="classes" id="list"></div>
+  </section>
+
+  <section class="view" id="v-plans" hidden>
+    <div class="sec-h"><h2>Memberships</h2><span class="small">Paid monthly by debit order or card. Cancel any time.</span></div>
+    <div class="plans">
+      <div class="plan"><h3>Drop-in</h3><div class="pr">R80 <small>/ class</small></div><ul><li>Pay per class</li><li>Book up to 7 days ahead</li></ul><button class="btn ghost" type="button" data-go="classes">Book a class</button></div>
+      <div class="plan hot"><h3>8 classes</h3><div class="pr">R520 <small>/ month</small></div><ul><li>Save R120 a month</li><li>Book up to 14 days ahead</li><li>Free fitness assessment</li></ul><button class="btn" type="button" data-plan="8 classes · R520/month">Join</button></div>
+      <div class="plan"><h3>Unlimited</h3><div class="pr">R790 <small>/ month</small></div><ul><li>Every class, every day</li><li>Bring a friend once a month</li><li>Member-only events</li></ul><button class="btn" type="button" data-plan="Unlimited · R790/month">Join</button></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-mine" hidden>
+    <div class="sec-h"><h2>My bookings</h2><span class="small">Signed in as Lebo Dlamini</span></div>
+    <div class="panel">
+      <div class="tbl"><table><thead><tr><th>Class</th><th>When</th><th>Paid</th><th>Status</th></tr></thead><tbody id="minebody">
+        <tr><td>Boxing basics</td><td>Last Thu 18:00</td><td>R80</td><td><span class="pill">Attended</span></td></tr>
+      </tbody></table></div>
+      <span class="small">Cancel up to 4 hours before a class for a full credit.</span>
+    </div>
+  </section>
+
+  <section class="view" id="v-dash" hidden>
+    <div class="ownerflag">Only the studio owner sees this page after signing in.</div>
+    <div class="sec-h"><h2>This week</h2></div>
+    <div class="stats">
+      <div class="stat"><span>Class income</span><b id="d-inc">R6,240</b></div>
+      <div class="stat"><span>Bookings</span><b id="d-bk">78</b></div>
+      <div class="stat"><span>Active members</span><b id="d-mem">41</b></div>
+      <div class="stat"><span>No-shows</span><b>4</b></div>
+    </div>
+    <div class="dash">
+      <div class="panel"><h3 style="font-size:24px">How full are classes?</h3><div class="fill" id="fill"></div></div>
+      <div class="panel"><h3 style="font-size:24px">Latest bookings</h3>
+        <div class="tbl"><table><thead><tr><th>Name</th><th>Class</th><th>Paid</th></tr></thead><tbody id="dashbody">
+          <tr><td>Sizwe K.</td><td>HIIT 06:00</td><td>R80</td></tr>
+          <tr><td>Mpho R.</td><td>Spin 17:30</td><td>Member</td></tr>
+          <tr><td>Anele T.</td><td>Boxing 18:00</td><td>R80</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sh-t">
+  <h3 id="sh-t">Book class</h3>
+  <div id="sh-d" class="small"></div>
+  <div class="pay">
+    <label for="m-card"><input type="radio" name="m" id="m-card" checked> Card</label>
+    <label for="m-eft"><input type="radio" name="m" id="m-eft"> Instant EFT</label>
+  </div>
+  <p class="small" style="margin:0">On the real site, this opens a secure payment page. This sample takes no payment and asks for no card details.</p>
+  <div class="row"><button class="btn" type="button" id="sh-pay">Pay R80 and book</button><button class="btn ghost" type="button" id="sh-x">Cancel</button></div>
+</div>
+
+<footer><div class="wrap"><span>Pulse Fitness Studio · Akasia</span><span>pulsefitness.co.za</span></div></footer>
+
+<script>
+(function(){
+  var views=['classes','plans','mine','dash'];
+  var nav=[].slice.call(document.querySelectorAll('.nav button'));
+  function show(v){views.forEach(function(x){document.getElementById('v-'+x).hidden=(x!==v);});
+    nav.forEach(function(b){if(b.dataset.v===v)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});window.scrollTo(0,0);document.dispatchEvent(new CustomEvent('view',{detail:v}));}
+  nav.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.v);});});
+  document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(g)show(g.dataset.go);});
+
+  var D=['Mon','Tue','Wed','Thu','Fri','Sat'];
+  var base=[['06:00','HIIT',45,'Coach Thabo'],['09:30','Pilates mat',50,'Coach Naledi'],['17:30','Spin',45,'Coach Thabo'],['18:30','Boxing basics',60,'Coach Sbu']];
+  var sat=[['08:00','Bootcamp',60,'Coach Sbu'],['10:00','Yoga flow',60,'Coach Naledi']];
+  var C={};D.forEach(function(d,i){C[d]=(d==='Sat'?sat:base).map(function(c,j){return {t:c[0],n:c[1],m:c[2],coach:c[3],cap:12,booked:(3+i*2+j*3)%13};});});
+  C.Tue[3].booked=12;
+  var day='Wed';
+  var days=document.getElementById('days');
+  var now=new Date();var mon=new Date(now);mon.setDate(now.getDate()-((now.getDay()+6)%7));
+  D.forEach(function(d,i){var dt=new Date(mon);dt.setDate(mon.getDate()+i);
+    var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',d===day?'true':'false');
+    b.innerHTML='<b>'+d+'</b><small>'+dt.getDate()+' '+dt.toLocaleString('en-ZA',{month:'short'})+'</small>';
+    b.onclick=function(){day=d;[].forEach.call(days.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});list();};days.appendChild(b);});
+
+  function list(){var L=document.getElementById('list');L.innerHTML='';
+    C[day].forEach(function(c){var left=c.cap-c.booked;var el=document.createElement('div');el.className='cls';
+      el.innerHTML='<div class="time">'+c.t+'<small>'+c.m+' min</small></div><div><h3>'+c.n+'</h3><div class="meta">'+c.coach+' · R80</div><div class="spots '+(left<=3?'low':'ok')+'">'+(left?left+' of '+c.cap+' spots left':'Full, join the waitlist')+'</div></div>';
+      var b=document.createElement('button');b.className='btn';b.type='button';b.textContent=left?'Book':'Full';b.disabled=!left;
+      b.onclick=function(){openSheet(c);};el.appendChild(b);L.appendChild(el);});
+    fill();}
+
+  var sel=null,sh=document.getElementById('sheet'),sc=document.getElementById('scrim');
+  function openSheet(c){sel=c;document.getElementById('sh-t').textContent=c.n;
+    document.getElementById('sh-d').textContent=day+' at '+c.t+' · '+c.m+' min · '+c.coach+' · '+(c.cap-c.booked)+' spots left';
+    sh.hidden=false;sc.hidden=false;document.getElementById('sh-pay').focus();}
+  function closeSheet(){sh.hidden=true;sc.hidden=true;}
+  document.getElementById('sh-x').onclick=closeSheet;sc.onclick=closeSheet;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sh.hidden)closeSheet();});
+  function R(n){return 'R'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+  document.getElementById('sh-pay').onclick=function(){
+    var c=sel;c.booked++;closeSheet();
+    var tr=document.createElement('tr');tr.innerHTML='<td>'+c.n+'</td><td>'+day+' '+c.t+'</td><td>R80</td><td><span class="pill">Booked</span></td>';
+    document.getElementById('minebody').prepend(tr);
+    var dt=document.createElement('tr');dt.innerHTML='<td>Lebo D.</td><td>'+c.n+' '+c.t+'</td><td>R80</td>';document.getElementById('dashbody').prepend(dt);
+    var inc=document.getElementById('d-inc');inc.textContent=R(+inc.textContent.replace(/\D/g,'')+80);
+    var bk=document.getElementById('d-bk');bk.textContent=+bk.textContent+1;
+    var t=document.getElementById('toast');t.innerHTML='';var d=document.createElement('div');d.className='toast';
+    d.textContent='Booked: '+c.n+', '+day+' at '+c.t+'. Paid R80. It now shows in My bookings and in the Owner dashboard.';t.appendChild(d);
+    list();};
+  [].forEach.call(document.querySelectorAll('[data-plan]'),function(b){b.addEventListener('click',function(){
+    var m=document.getElementById('d-mem');m.textContent=+m.textContent+1;b.textContent='Joined';b.disabled=true;
+    var t=document.getElementById('toast');t.innerHTML='';var d=document.createElement('div');d.className='toast';d.textContent='You joined: '+b.dataset.plan+'. Sample only, no payment taken.';t.appendChild(d);});});
+
+  function fill(){var F=document.getElementById('fill');F.innerHTML='';
+    C[day].forEach(function(c){var pct=Math.round(c.booked/c.cap*100);var r=document.createElement('div');r.className='fr';
+      r.innerHTML='<span>'+c.n+'</span><div class="track"><i class="'+(pct>=100?'full':'')+'" style="width:'+pct+'%"></i></div><span>'+c.booked+'/'+c.cap+'</span>';F.appendChild(r);});
+    var h=document.createElement('div');h.className='small';h.textContent='Showing '+day+'. Change the day on the Classes page.';F.appendChild(h);}
+  list();
+})();
+</script>
+<div class="cur" id="cur" aria-hidden="true"></div>
+<!-- Pro-level motion: smooth scroll, pinned heart-rate story drawn by scrolling, counting BPM, cursor + magnetic buttons -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,lenis=null;
+  if(window.Lenis&&!reduce){lenis=new Lenis({lerp:.09});(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);}
+  document.addEventListener('view',function(){if(lenis)lenis.scrollTo(0,{immediate:true});render();});
+  // build a heartbeat line whose beats get closer and taller, then calm down
+  var d='M0 100',x=0,beats=[[70,.5],[70,.55],[62,.65],[55,.75],[48,.85],[42,.95],[38,1],[36,1],[36,1],[42,.9],[52,.75],[62,.6],[72,.5],[80,.45]];
+  beats.forEach(function(b){var w=b[0],h=b[1]*80;d+=' L'+(x+w*.35)+' 100 L'+(x+w*.42)+' '+(100-h*.25)+' L'+(x+w*.5)+' 100 L'+(x+w*.58)+' '+(100-h)+' L'+(x+w*.66)+' '+(100+h*.45)+' L'+(x+w*.74)+' 100 L'+(x+w)+' 100';x+=w;});
+  var sx=1000/x;d=d.replace(/([LM])([\d.]+) /g,function(m,c,n){return c+(+n*sx).toFixed(1)+' ';});
+  var ecg=document.getElementById('ecg');ecg.setAttribute('d',d);document.getElementById('ecgbg').setAttribute('d',d);
+  var len=ecg.getTotalLength();ecg.style.strokeDasharray=len;ecg.style.strokeDashoffset=len;
+  var PH=[['WARM UP','Every class starts easy. Five minutes to get the blood moving.',72,105],
+          ['BUILD','Coach Thabo picks up the pace. Rounds get shorter, rest gets shorter.',105,140],
+          ['PUSH','The last ten minutes. This is the part you’ll talk about after.',140,171],
+          ['RECOVER','Stretch, breathe, water. You’re out the door in 45 minutes.',171,96]];
+  var stage=document.getElementById('stage'),phase=document.getElementById('phase'),bpm=document.getElementById('bpm'),cap=document.getElementById('pcap'),glow=document.getElementById('glow'),hints=[].slice.call(document.getElementById('phints').children);
+  var cur=-1,raf=0;
+  function render(){raf=0;if(stage.offsetParent===null)return;
+    var r=stage.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/(stage.offsetHeight-innerHeight)));
+    ecg.style.strokeDashoffset=(len*(1-p)).toFixed(1);
+    var i=Math.min(3,Math.floor(p*4)),t=p*4-i,ph=PH[i];
+    bpm.textContent=Math.round(ph[2]+(ph[3]-ph[2])*t);
+    var heat=i===2?.55+t*.45:i===3?1-t*.7:i===1?.3+t*.25:.15+t*.15;
+    glow.style.opacity=heat.toFixed(2);glow.style.transform='translate(-50%,-50%) scale('+(.7+heat*.6).toFixed(2)+')';
+    if(i!==cur){cur=i;phase.textContent=ph[0];cap.textContent=ph[1];hints.forEach(function(h,k){h.classList.toggle('on',k<=i);});
+      if(!reduce&&phase.animate)phase.animate([{transform:'translateY(30px)',opacity:0},{transform:'none',opacity:1}],{duration:450,easing:'cubic-bezier(.2,.8,.2,1)'});}
+  }
+  addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(render);},{passive:true});
+  addEventListener('resize',render);render();
+
+  if(reduce||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  var c=document.getElementById('cur'),mx=0,my=0,cx=0,cy=0;
+  addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+  (function loop(){cx+=(mx-cx)*.2;cy+=(my-cy)*.2;c.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
+  document.addEventListener('mouseover',function(e){c.classList.toggle('grow',!!e.target.closest('button,a'));});
+  document.addEventListener('mousemove',function(e){var b=e.target.closest('.btn');
+    document.querySelectorAll('.btn[data-mag]').forEach(function(x){if(x!==b){x.style.transform='';x.removeAttribute('data-mag');}});
+    if(!b||b.disabled)return;var r=b.getBoundingClientRect();b.setAttribute('data-mag','');
+    b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';});
+})();
+</script>
+</body>
+</html>

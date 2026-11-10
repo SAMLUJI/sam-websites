@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thandi's Braids &amp; Beauty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#FBF3EE;--ink:#3A1F1A;--muted:#7A5A52;--rose:#C2577A;--rose-soft:#F2D3DC;--card:#FFFFFF;--line:#EBD9D0;
+  --serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;padding-bottom:env(safe-area-inset-bottom,0px)}
+.sambar{background:#111;color:#FFD400;font:700 13px/1.3 system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));padding-top:max(10px,env(safe-area-inset-top,0px));display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.sambar button{font:inherit;background:#FFD400;color:#111;border:0;padding:8px 12px;min-height:36px;cursor:pointer}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.hero .wrap{padding-block:48px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}}
+.kicker{color:var(--rose);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+.hero h1{font-size:clamp(44px,7vw,76px);line-height:1}
+.hero h1 em{color:var(--rose)}
+.hero p{font-size:18px;color:var(--muted);max-width:42ch;margin:14px 0 22px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 24px;border-radius:999px;background:var(--rose);color:#fff;text-decoration:none;font-weight:700}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.photo{border-radius:24px;position:relative;overflow:hidden;min-height:120px;display:flex;align-items:flex-end;padding:12px;color:#fff;font-size:13px;font-weight:500}
+.photo span{background:rgba(58,31,26,.55);padding:3px 9px;border-radius:999px}
+.p1{background:radial-gradient(circle at 30% 30%,#E9A6B9,transparent 60%),linear-gradient(140deg,#7A3A4E,#C2577A)}
+.p2{background:repeating-linear-gradient(115deg,#5B2D3B 0 10px,#7D4152 10px 20px)}
+.p3{background:radial-gradient(circle at 70% 40%,#F2D3DC,transparent 55%),linear-gradient(200deg,#3A1F1A,#9B5065)}
+.p4{background:linear-gradient(160deg,#D98FA5,#8C3E57)}
+.p5{background:repeating-radial-gradient(circle at 50% 120%,#6E3446 0 14px,#8F4A60 14px 28px)}
+.p6{background:radial-gradient(circle at 20% 80%,#F7C9B5,transparent 50%),linear-gradient(120deg,#A9566F,#5B2D3B)}
+.hero .photo{aspect-ratio:4/5;max-width:100%;border-radius:200px 200px 24px 24px}
+section{padding-block:40px}
+.sec-h{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+.sec-h h2{font-size:clamp(32px,5vw,46px)}
+.prices{background:var(--card);border-radius:24px;padding:8px 24px;border:1px solid var(--line)}
+.pr{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.pr:last-child{border-bottom:0}
+.pr b{font-weight:500}
+.pr small{display:block;color:var(--muted)}
+.pr span{font-family:var(--serif);font-size:22px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid .photo{aspect-ratio:1;min-height:0}
+@media(max-width:560px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.info{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.box h2{font-size:30px}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;margin:0}
+.hours dt{font-weight:700}.hours dd{margin:0;color:var(--muted)}
+.map{border-radius:18px;min-height:170px;background:
+  linear-gradient(90deg,transparent 48%,#fff 48% 52%,transparent 52%),
+  linear-gradient(0deg,transparent 30%,#fff 30% 34%,transparent 34%),
+  linear-gradient(35deg,transparent 60%,#fff 60% 63%,transparent 63%),#E7DCCF;position:relative}
+.pin{position:absolute;left:50%;top:32%;width:28px;height:28px;background:var(--rose);border-radius:50% 50% 50% 0;transform:translate(-50%,-50%) rotate(-45deg);border:3px solid #fff}
+footer{padding-block:28px 90px;color:var(--muted);font-size:14px;text-align:center}
+.float{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));background:#1F8F4E;color:#fff;border-radius:999px;padding:0 20px;min-height:54px;display:flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+/* light motion: hero fades in on load, sections ease in as you scroll (browsers that support it) */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .wrap>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>*:nth-child(2){animation-delay:.15s}
+@supports (animation-timeline: view()){
+  .pr,.grid .photo,.box{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+}
+.photo{transition:transform .4s}
+.grid .photo:hover{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sambar"><span>Example website · BASIC package (R1,500) · 1 page, up to 6 photos</span><button type="button" onclick="location.href='/#examples'">← Back to packages</button></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Ga-Rankuwa · Zone 1</div>
+      <h1>Thandi's <em>Braids</em> &amp; Beauty</h1>
+      <p>Knotless braids, cornrows, locs and nails. Neat work, fair prices, and I'll tell you how long it takes before we start.</p>
+      <div class="cta">
+        <a class="btn" href="#prices">See prices</a>
+        <a class="btn alt" href="#find">Find me</a>
+      </div>
+    </div>
+    <div class="photo p1" role="img" aria-label="Photo placeholder: client with knotless braids"><span>Your best photo here</span></div>
+  </div>
+</header>
+
+<section id="prices">
+  <div class="wrap">
+    <div class="sec-h"><div class="kicker">Price list</div><h2>What it costs</h2></div>
+    <div class="prices">
+      <div class="pr"><b>Knotless braids, medium<small>About 5 hours, hair included</small></b><span>R450</span></div>
+      <div class="pr"><b>Knotless braids, small<small>About 7 hours, hair included</small></b><span>R600</span></div>
+      <div class="pr"><b>Cornrows, straight back</b><span>R150</span></div>
+      <div class="pr"><b>Cornrows with design</b><span>R250</span></div>
+      <div class="pr"><b>Loc retwist</b><span>R250</span></div>
+      <div class="pr"><b>Wash &amp; blow-dry</b><span>R120</span></div>
+      <div class="pr"><b>Gel nails, plain</b><span>R180</span></div>
+      <div class="pr"><b>Gel nails with art</b><span>R250</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h"><div class="kicker">Recent work</div><h2>My clients</h2></div>
+    <div class="grid">
+      <div class="photo p2" role="img" aria-label="Photo placeholder"><span>Cornrows</span></div>
+      <div class="photo p3" role="img" aria-label="Photo placeholder"><span>Locs</span></div>
+      <div class="photo p4" role="img" aria-label="Photo placeholder"><span>Gel nails</span></div>
+      <div class="photo p5" role="img" aria-label="Photo placeholder"><span>Knotless</span></div>
+      <div class="photo p6" role="img" aria-label="Photo placeholder"><span>Bridal</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="find">
+  <div class="wrap info">
+    <div class="box">
+      <h2>Opening hours</h2>
+      <dl class="hours">
+        <dt>Mon – Fri</dt><dd>09:00 – 18:00</dd>
+        <dt>Saturday</dt><dd>07:00 – 17:00</dd>
+        <dt>Sunday</dt><dd>Closed</dd>
+      </dl>
+      <p style="margin:0;color:var(--muted)">Book on WhatsApp. Walk-ins welcome if there's a chair free.</p>
+    </div>
+    <div class="box">
+      <h2>Find me</h2>
+      <div class="map" role="img" aria-label="Map with location pin"><div class="pin"></div></div>
+      <a class="btn alt" href="https://www.google.com/maps/search/Ga-Rankuwa" target="_blank" rel="noopener">Open in Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<footer>Thandi's Braids &amp; Beauty · 071 000 0000 · thandisbraids.netlify.app</footer>
+<a class="float" href="#prices">WhatsApp to book</a>
+</body>
+</html>

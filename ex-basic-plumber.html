@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mokoena Plumbing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;600&display=swap">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#F3F5F8;--ink:#0D1B2E;--muted:#4A5A70;--blue:#0B4FD6;--orange:#FF7A1A;--card:#FFFFFF;--line:#D5DCE6;
+  --head:'Barlow Condensed','Arial Narrow',sans-serif;--body:'Barlow',system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom,0px)}
+.sambar{background:#111;color:#FFD400;font:700 13px/1.3 system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));padding-top:max(10px,env(safe-area-inset-top,0px));display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.sambar button{font:inherit;background:#FFD400;color:#111;border:0;padding:8px 12px;min-height:36px;cursor:pointer}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--head);font-weight:800;text-transform:uppercase;margin:0;line-height:.95;letter-spacing:.01em}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.alert{background:var(--orange);color:#111;font-weight:600}
+.alert .wrap{padding-block:10px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-40px;width:340px;height:340px;border:40px solid rgba(255,255,255,.08);border-radius:50%}
+.hero .wrap{padding-block:52px;display:flex;flex-direction:column;gap:18px;position:relative;z-index:1}
+.hero h1{font-size:clamp(54px,11vw,120px)}
+.hero h1 span{color:var(--orange)}
+.hero p{margin:0;font-size:20px;max-width:46ch;opacity:.92}
+.callbox{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;background:var(--orange);color:#111;font-family:var(--head);font-weight:800;font-size:22px;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+.btn.white{background:#fff;color:var(--blue)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-weight:600}
+section{padding-block:44px}
+.sec-h{margin-bottom:22px;display:flex;flex-direction:column;gap:6px}
+.sec-h h2{font-size:clamp(38px,6vw,58px)}
+.sec-h p{margin:0;color:var(--muted)}
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line);border:2px solid var(--line)}
+@media(max-width:640px){.svc{grid-template-columns:1fr}}
+.s{background:var(--card);padding:18px 20px;display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.s b{font-weight:600}
+.s span{font-family:var(--head);font-weight:800;font-size:26px;color:var(--blue);white-space:nowrap}
+.s small{display:block;color:var(--muted);font-size:14px}
+.jobs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media(max-width:760px){.jobs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ph{aspect-ratio:3/4;display:flex;align-items:flex-end;padding:10px;color:#fff;font-weight:600;font-size:14px}
+.ph span{background:rgba(13,27,46,.7);padding:2px 8px}
+.j1{background:linear-gradient(180deg,#2A3B55,#0B4FD6)}
+.j2{background:repeating-linear-gradient(90deg,#7C8BA1 0 18px,#5E6E85 18px 22px)}
+.j3{background:radial-gradient(circle at 50% 40%,#9FB7DA,#244064)}
+.j4{background:linear-gradient(135deg,#FF7A1A,#7A3A0A)}
+.j5{background:repeating-linear-gradient(0deg,#C9D3E0 0 30px,#AEBACB 30px 32px)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:720px){.split{grid-template-columns:1fr}}
+.panel{background:var(--card);border-top:6px solid var(--blue);padding:24px;display:flex;flex-direction:column;gap:12px}
+.panel h3{font-size:34px}
+.areas{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.areas li{border:2px solid var(--ink);padding:4px 10px;font-weight:600}
+.hrs{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin:0}
+.hrs dt{font-weight:600}.hrs dd{margin:0}
+footer{background:var(--ink);color:#C7D0DD;font-size:14px}
+footer .wrap{padding-block:24px}
+/* light motion: hero slides in on load, cards ease in as you scroll (browsers that support it) */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .wrap>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>*:nth-child(2){animation-delay:.1s}.hero .wrap>*:nth-child(3){animation-delay:.2s}.hero .wrap>*:nth-child(4){animation-delay:.3s}
+.hero::after{animation:spin 40s linear infinite}
+@supports (animation-timeline: view()){
+  .s,.ph,.panel{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+}
+.btn{transition:transform .15s}.btn:hover{transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sambar"><span>Example website · BASIC package (R1,500) · 1 page, up to 6 photos</span><button type="button" onclick="location.href='/#examples'">← Back to packages</button></div>
+
+<div class="alert"><div class="wrap"><span>Burst pipe? Emergency call-outs 24/7</span><span>Callout fee R350</span></div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Mokoena<br><span>Plumbing</span></h1>
+    <p>Leaks, geysers, blocked drains and new installations in Pretoria North and surrounds. Licensed plumber, 12 years' experience.</p>
+    <div class="callbox">
+      <a class="btn" href="#services">Call 072 000 0000</a>
+      <a class="btn white" href="#services">WhatsApp a photo</a>
+    </div>
+    <div class="facts"><span>✔ PIRB registered</span><span>✔ Same-day service</span><span>✔ Written quote first</span></div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-h"><h2>Services &amp; prices</h2><p>Prices include labour. Parts are quoted separately before I start.</p></div>
+    <div class="svc">
+      <div class="s"><b>Geyser replacement<small>150L, incl. compliance certificate</small></b><span>from R2,800</span></div>
+      <div class="s"><b>Geyser element or thermostat</b><span>from R650</span></div>
+      <div class="s"><b>Blocked drain<small>Kitchen, bathroom or outside</small></b><span>from R450</span></div>
+      <div class="s"><b>Leak detection &amp; repair</b><span>from R550</span></div>
+      <div class="s"><b>Toilet repair or replacement</b><span>from R400</span></div>
+      <div class="s"><b>Tap &amp; mixer installation</b><span>from R300</span></div>
+      <div class="s"><b>Burst pipe repair</b><span>from R500</span></div>
+      <div class="s"><b>Plumbing compliance certificate</b><span>R1,200</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h"><h2>Recent jobs</h2></div>
+    <div class="jobs">
+      <div class="ph j1" role="img" aria-label="Photo placeholder"><span>New geyser</span></div>
+      <div class="ph j2" role="img" aria-label="Photo placeholder"><span>Pipe repair</span></div>
+      <div class="ph j3" role="img" aria-label="Photo placeholder"><span>Bathroom</span></div>
+      <div class="ph j4" role="img" aria-label="Photo placeholder"><span>Solar geyser</span></div>
+      <div class="ph j5" role="img" aria-label="Photo placeholder"><span>Drain unblock</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div class="panel">
+      <h3>Areas I cover</h3>
+      <ul class="areas"><li>Pretoria North</li><li>Ga-Rankuwa</li><li>Mabopane</li><li>Soshanguve</li><li>Akasia</li><li>Rosslyn</li></ul>
+    </div>
+    <div class="panel">
+      <h3>Hours</h3>
+      <dl class="hrs"><dt>Mon – Sat</dt><dd>07:00 – 18:00</dd><dt>Sunday</dt><dd>Emergencies only</dd><dt>Emergencies</dt><dd>24 hours, 7 days</dd></dl>
+      <a class="btn" href="https://www.google.com/maps/search/Pretoria+North" target="_blank" rel="noopener">See on Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Mokoena Plumbing · 072 000 0000 · mokoenaplumbing.netlify.app</div></footer>
+</body>
+</html>

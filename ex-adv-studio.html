@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naledi Photo Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Inter:wght@400;500&display=swap">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#FFFFFF;--ink:#0E0E0E;--muted:#666660;--soft:#F1F0EC;--line:#E2E1DC;--accent:#3D5AFE;
+  --disp:'Syne',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-bottom:env(safe-area-inset-bottom,0px)}
+.sambar{background:#111;color:#FFD400;font:700 13px/1.3 system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));padding-top:max(10px,env(safe-area-inset-top,0px));display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.sambar button{font:inherit;background:#FFD400;color:#111;border:0;padding:8px 12px;min-height:36px;cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--disp);font-weight:800;margin:0;letter-spacing:-.02em;line-height:1;text-wrap:balance}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-block:16px}
+.logo{font-family:var(--disp);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.tabs{display:flex;gap:2px;flex-wrap:wrap}
+.tabs button{background:none;border:0;font:500 15px var(--body);color:var(--muted);padding:10px 12px;min-height:44px;cursor:pointer;border-radius:999px}
+.tabs button[aria-current="page"]{background:var(--ink);color:#fff}
+.note{font-size:12px;color:var(--muted);text-align:center;padding:6px;background:var(--soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:999px;background:var(--ink);color:#fff;border:0;font:500 16px var(--body);cursor:pointer;text-decoration:none}
+.btn.out{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.view{padding-block:40px 60px}
+.hero h1{font-size:clamp(52px,11vw,150px);text-transform:lowercase}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-row{display:grid;grid-template-columns:2fr 1fr;gap:28px;margin-top:28px;align-items:end}
+@media(max-width:760px){.hero-row{grid-template-columns:1fr}}
+.hero-row p{margin:0;color:var(--muted);font-size:18px;max-width:40ch}
+.ph{display:flex;align-items:flex-end;padding:12px;color:#fff;font-size:13px}
+.ph span{background:rgba(0,0,0,.45);padding:2px 8px;border-radius:999px}
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:10px;margin-top:36px}
+.mosaic .ph:first-child{grid-row:span 2}
+@media(max-width:700px){.mosaic{grid-template-columns:1fr 1fr;grid-template-rows:200px 160px 160px}.mosaic .ph:first-child{grid-column:span 2;grid-row:auto}}
+.sec-h{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.sec-h h2{font-size:clamp(40px,7vw,80px)}
+.sec-h p{margin:0;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.filters button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;min-height:44px;font:500 15px var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.port{columns:3 240px;column-gap:10px}
+.port button{display:block;width:100%;border:0;padding:0;margin:0 0 10px;cursor:zoom-in;break-inside:avoid;background:none}
+.port .ph{width:100%}
+.pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:820px){.pk{grid-template-columns:1fr}}
+.pkg{border:1.5px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.pkg h3{font-size:28px}
+.pkg .pr{font-family:var(--disp);font-size:34px;font-weight:700}
+.pkg ul{margin:0;padding-left:18px;color:var(--muted)}
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:36px}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+.about .ph{aspect-ratio:3/4;border-radius:20px}
+.about p{font-size:18px;color:var(--muted);margin:0 0 14px}
+form{display:grid;gap:16px;max-width:640px}
+label{display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:14px}
+input,select,textarea{border:1.5px solid var(--line);border-radius:14px;font:16px var(--body);padding:12px 14px;min-height:50px;background:#fff;color:var(--ink)}
+.ok{background:var(--soft);border-radius:20px;padding:24px;max-width:640px}
+.lb{position:fixed;inset:0;background:rgba(255,255,255,.97);z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px max(18px,env(safe-area-inset-right,0px)) 24px max(18px,env(safe-area-inset-left,0px))}
+.lb .ph{width:min(90vw,720px);height:min(65vh,520px);border-radius:12px;font-size:15px}
+.lb .ctrl{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.hs{margin-top:60px}
+.hs-pin{overflow:hidden;padding-block:20px}
+.hs-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:20px}
+.hs-head h2{font-size:clamp(36px,6vw,64px)}
+.hs-hint{color:var(--muted);font-size:14px}
+.hs-track{display:flex;gap:16px;width:max-content}
+.hs-card{width:min(70vw,380px);display:flex;flex-direction:column;gap:4px}
+.hs-card .ph{aspect-ratio:4/5;border-radius:16px;width:100%}
+.hs-card span{color:var(--muted);font-size:14px}
+.no-gsap .hs-pin{overflow-x:auto}
+footer{border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="sambar"><span>Example website · ADVANCED package (R3,500) · 5 pages, gallery, enquiry form</span><button type="button" onclick="location.href='/#examples'">← Back to packages</button></div>
+
+<header>
+  <div class="wrap">
+    <div class="logo">naledi<span>.</span>studio</div>
+    <div class="tabs" role="navigation" aria-label="Pages">
+      <button type="button" data-v="home" aria-current="page">Home</button>
+      <button type="button" data-v="portfolio">Portfolio</button>
+      <button type="button" data-v="packages">Packages</button>
+      <button type="button" data-v="about">About</button>
+      <button type="button" data-v="enquire">Enquire</button>
+    </div>
+  </div>
+</header>
+<div class="note">Tap the menu above. Each one is a separate page.</div>
+
+<main class="wrap">
+  <section class="view" id="v-home">
+    <div class="hero">
+      <h1>light, <em>people</em>, moments.</h1>
+      <div class="hero-row">
+        <p>Graduations, weddings, portraits and brand shoots in Pretoria. Natural light, honest colour, photos delivered in 7 days.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="button" data-go="portfolio">See my work</button><button class="btn out" type="button" data-go="enquire">Check my dates</button></div>
+      </div>
+      <div class="mosaic">
+        <div class="ph" style="background:linear-gradient(170deg,#C9B8A6,#5B4A3E)" role="img" aria-label="Photo placeholder"><span>Graduation</span></div>
+        <div class="ph" style="background:linear-gradient(200deg,#A7B7C9,#3E4E62)" role="img" aria-label="Photo placeholder"><span>Portrait</span></div>
+        <div class="ph" style="background:radial-gradient(circle at 30% 30%,#F4E3C8,#9A7B55)" role="img" aria-label="Photo placeholder"><span>Wedding</span></div>
+        <div class="ph" style="background:linear-gradient(120deg,#2C2C2C,#7A7A7A)" role="img" aria-label="Photo placeholder"><span>Studio</span></div>
+        <div class="ph" style="background:linear-gradient(160deg,#8FA98A,#3B4E37)" role="img" aria-label="Photo placeholder"><span>Outdoor</span></div>
+      </div>
+    </div>
+    <div class="hs" id="hs">
+      <div class="hs-pin">
+        <div class="hs-head"><h2>recent shoots</h2><span class="hs-hint">keep scrolling</span></div>
+        <div class="hs-track" id="hstrack">
+          <div class="hs-card"><div class="ph" style="background:linear-gradient(170deg,#C9B8A6,#5B4A3E)"></div><b>Thabo &amp; Kea</b><span>Wedding · Hartbeespoort</span></div>
+          <div class="hs-card"><div class="ph" style="background:linear-gradient(130deg,#6C7FA3,#212C44)"></div><b>SMU Class of '26</b><span>Graduation · Ga-Rankuwa</span></div>
+          <div class="hs-card"><div class="ph" style="background:linear-gradient(140deg,#3D5AFE,#141C52)"></div><b>Bloom Café</b><span>Brand shoot · Pretoria</span></div>
+          <div class="hs-card"><div class="ph" style="background:radial-gradient(circle at 60% 40%,#C7A89A,#4A3329)"></div><b>Lerato</b><span>Portrait · Studio</span></div>
+          <div class="hs-card"><div class="ph" style="background:linear-gradient(200deg,#C3D4C0,#4E6A4A)"></div><b>Nkosi family</b><span>Outdoor · Groenkloof</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="v-portfolio" hidden>
+    <div class="sec-h"><h2>portfolio</h2><p>Filter by type of shoot. Tap any photo to see it full-size.</p></div>
+    <div class="filters" id="filters">
+      <button type="button" aria-pressed="true" data-f="all">All</button>
+      <button type="button" aria-pressed="false" data-f="Graduation">Graduation</button>
+      <button type="button" aria-pressed="false" data-f="Wedding">Wedding</button>
+      <button type="button" aria-pressed="false" data-f="Portrait">Portrait</button>
+      <button type="button" aria-pressed="false" data-f="Brand">Brand</button>
+    </div>
+    <div class="port" id="port"></div>
+  </section>
+
+  <section class="view" id="v-packages" hidden>
+    <div class="sec-h"><h2>packages</h2><p>Every package includes edited, full-resolution photos in an online album.</p></div>
+    <div class="pk">
+      <div class="pkg"><h3>Portrait</h3><div class="pr">R950</div><ul><li>1 hour, 1 location</li><li>15 edited photos</li><li>Ready in 5 days</li></ul></div>
+      <div class="pkg"><h3>Graduation</h3><div class="pr">R1,400</div><ul><li>2 hours, campus + 1 extra spot</li><li>40 edited photos</li><li>Family shots included</li></ul></div>
+      <div class="pkg"><h3>Wedding</h3><div class="pr">from R8,500</div><ul><li>Ceremony + reception</li><li>300+ edited photos</li><li>Second shooter optional</li></ul></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-about" hidden>
+    <div class="about">
+      <div class="ph" style="background:linear-gradient(180deg,#D8D2C8,#6A635A)" role="img" aria-label="Photo placeholder: the photographer"><span>Photographer</span></div>
+      <div>
+        <h2 style="font-size:clamp(40px,6vw,72px);margin-bottom:20px">hi, I'm naledi.</h2>
+        <p>I've been shooting for eight years, starting with my cousins' graduations on a borrowed camera.</p>
+        <p>I like quiet, natural photos where people look like themselves. I'll guide you through poses so you never feel awkward in front of the camera.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="v-enquire" hidden>
+    <div class="sec-h"><h2>enquire</h2><p>Tell me about your shoot and I'll reply within a day with availability.</p></div>
+    <form id="enq">
+      <label for="e-name">Name<input id="e-name" required value="Palesa N."></label>
+      <label for="e-email">Email<input id="e-email" type="email" required value="palesa@example.com"></label>
+      <label for="e-type">Type of shoot<select id="e-type"><option>Portrait</option><option selected>Graduation</option><option>Wedding</option><option>Brand</option></select></label>
+      <label for="e-date">Preferred date<input id="e-date" type="date"></label>
+      <label for="e-msg">Message<textarea id="e-msg" rows="4">Graduating from SMU in April, want photos with my family on campus.</textarea></label>
+      <div><button class="btn" type="submit">Send enquiry</button></div>
+    </form>
+    <div class="ok" id="enqok" hidden><h3 style="font-size:28px;margin-bottom:8px">Thanks, Palesa</h3><p style="margin:0;color:var(--muted)">On a real site, this lands in the photographer's inbox. This is a sample, so nothing was sent.</p></div>
+  </section>
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="ph" id="lbimg"></div>
+  <div class="ctrl"><button class="btn out" type="button" id="lbprev">Previous</button><button class="btn" type="button" id="lbclose">Close</button><button class="btn out" type="button" id="lbnext">Next</button></div>
+</div>
+
+<footer><div class="wrap"><span>Naledi Photo Studio · Pretoria</span><span>naledistudio.co.za</span></div></footer>
+
+<script>
+(function(){
+  var views=['home','portfolio','packages','about','enquire'];
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(v){views.forEach(function(n){document.getElementById('v-'+n).hidden=(n!==v);});
+    tabs.forEach(function(t){if(t.dataset.v===v)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current');});window.scrollTo(0,0);document.dispatchEvent(new CustomEvent('view',{detail:v}));}
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.v);});});
+  [].forEach.call(document.querySelectorAll('[data-go]'),function(b){b.addEventListener('click',function(){show(b.dataset.go);});});
+
+  var items=[
+    ['Graduation',320,'linear-gradient(170deg,#C9B8A6,#5B4A3E)'],['Wedding',220,'radial-gradient(circle at 30% 30%,#F4E3C8,#9A7B55)'],
+    ['Portrait',280,'linear-gradient(200deg,#A7B7C9,#3E4E62)'],['Brand',200,'linear-gradient(120deg,#2C2C2C,#7A7A7A)'],
+    ['Graduation',240,'linear-gradient(150deg,#E2C9A0,#7A5B36)'],['Wedding',340,'linear-gradient(180deg,#EDE6DA,#A08E74)'],
+    ['Portrait',220,'radial-gradient(circle at 60% 40%,#C7A89A,#4A3329)'],['Brand',300,'linear-gradient(140deg,#3D5AFE,#141C52)'],
+    ['Graduation',260,'linear-gradient(200deg,#8FA98A,#3B4E37)'],['Wedding',240,'linear-gradient(160deg,#D9C2B8,#6E5148)'],
+    ['Portrait',320,'linear-gradient(180deg,#B9B4AC,#3A3631)'],['Brand',220,'radial-gradient(circle at 50% 50%,#F2B880,#7A3E14)'],
+    ['Graduation',200,'linear-gradient(130deg,#6C7FA3,#212C44)'],['Wedding',280,'radial-gradient(circle at 70% 30%,#FFF4E2,#B39469)'],
+    ['Portrait',240,'linear-gradient(170deg,#9E8C80,#2E2622)'],['Brand',260,'linear-gradient(200deg,#C3D4C0,#4E6A4A)']
+  ];
+  var port=document.getElementById('port'),shown=[];
+  function render(f){port.innerHTML='';shown=items.filter(function(it){return f==='all'||it[0]===f;});
+    shown.forEach(function(it,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Open '+it[0]+' photo');
+      var d=document.createElement('div');d.className='ph';d.style.height=it[1]+'px';d.style.background=it[2];
+      var s=document.createElement('span');s.textContent=it[0];d.appendChild(s);b.appendChild(d);b.addEventListener('click',function(){open(i);});port.appendChild(b);});document.dispatchEvent(new CustomEvent('port'));}
+  render('all');
+  [].forEach.call(document.querySelectorAll('#filters button'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(document.querySelectorAll('#filters button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});render(b.dataset.f);});});
+  var lb=document.getElementById('lb'),img=document.getElementById('lbimg'),cur=0;
+  function open(i){cur=(i+shown.length)%shown.length;img.style.background=shown[cur][2];img.innerHTML='';var s=document.createElement('span');s.textContent=shown[cur][0]+' ('+(cur+1)+' of '+shown.length+')';img.appendChild(s);lb.hidden=false;document.getElementById('lbclose').focus();}
+  document.getElementById('lbclose').onclick=function(){lb.hidden=true;};
+  document.getElementById('lbprev').onclick=function(){open(cur-1);};
+  document.getElementById('lbnext').onclick=function(){open(cur+1);};
+  document.addEventListener('keydown',function(e){if(!lb.hidden&&e.key==='Escape')lb.hidden=true;});
+  document.getElementById('enq').addEventListener('submit',function(e){e.preventDefault();this.hidden=true;document.getElementById('enqok').hidden=false;});
+})();
+</script>
+<!-- Advanced-level motion: smooth scrolling, word reveals, pinned sideways scroll, photo reveals -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  if(!window.gsap||matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('no-gsap');return;}
+  gsap.registerPlugin(ScrollTrigger);
+  var lenis;
+  if(window.Lenis){lenis=new Lenis({lerp:.08});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000);});gsap.ticker.lagSmoothing(0);}
+  function split(el){var out=[];[].slice.call(el.childNodes).forEach(function(n){
+    function wrap(inner){var o=document.createElement('span');o.style.cssText='display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em';var w=document.createElement('span');w.style.display='inline-block';w.appendChild(inner);o.appendChild(w);out.push(w);return o;}
+    if(n.nodeType===3){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p))f.appendChild(document.createTextNode(p));else f.appendChild(wrap(document.createTextNode(p)));});el.replaceChild(f,n);}
+    else if(n.nodeName!=='BR'){var ph=document.createComment('');el.replaceChild(ph,n);el.replaceChild(wrap(n),ph);}});return out;}
+  var words={};
+  document.querySelectorAll('.view h1, .view .sec-h h2, .about h2').forEach(function(h,i){h.dataset.fx=i;words[i]=split(h);});
+  function play(sec){
+    sec.querySelectorAll('[data-fx]').forEach(function(h){gsap.from(words[h.dataset.fx],{yPercent:115,duration:1,ease:'expo.out',stagger:.07});});
+    gsap.from(sec.querySelectorAll('.hero-row > *, .sec-h p, .filters, .pkg, .about p, form'),{y:24,opacity:0,duration:.8,ease:'power3.out',stagger:.08,delay:.25});
+    gsap.from(sec.querySelectorAll('.mosaic .ph'),{clipPath:'inset(0 0 100% 0)',scale:1.08,duration:1.2,ease:'expo.out',stagger:.08,delay:.3});
+    gsap.from(sec.querySelectorAll('.about .ph'),{clipPath:'inset(100% 0 0 0)',duration:1.2,ease:'expo.out'});
+    ScrollTrigger.refresh();
+  }
+  // pinned sideways gallery: vertical scroll moves the strip left
+  var track=document.getElementById('hstrack'),hs=document.getElementById('hs');
+  gsap.to(track,{x:function(){return -(track.scrollWidth-hs.clientWidth);},ease:'none',
+    scrollTrigger:{trigger:hs,start:'top top',end:function(){return '+='+(track.scrollWidth-hs.clientWidth);},pin:true,scrub:.6,invalidateOnRefresh:true}});
+  gsap.utils.toArray('.hs-card .ph').forEach(function(p){gsap.fromTo(p,{backgroundPosition:'50% 0%'},{backgroundPosition:'50% 100%',ease:'none',scrollTrigger:{trigger:hs,start:'top top',end:'+=1200',scrub:true}});});
+  document.addEventListener('port',function(){gsap.from('#port button',{y:30,opacity:0,scale:.96,duration:.6,ease:'power3.out',stagger:.04});});
+  document.addEventListener('view',function(e){if(lenis)lenis.scrollTo(0,{immediate:true});play(document.getElementById('v-'+e.detail));});
+  play(document.getElementById('v-home'));
+})();
+</script>
+</body>
+</html>
