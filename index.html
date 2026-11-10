@@ -118,6 +118,36 @@ section{padding-block:36px}
 .ex::after{content:"→";margin-left:auto;font-weight:700;font-size:20px}
 .seeex{display:block;text-align:center;margin-top:10px;font-weight:700}
 
+/* demos up top */
+.demos{background:var(--fg);color:var(--bg);padding-block:44px}
+.demos .sec-head p{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.demos .eyebrow{color:var(--accent)}
+.demogrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:860px){.demogrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.demo{display:flex;flex-direction:column;background:var(--surface);color:var(--fg);text-decoration:none;border:3px solid var(--accent);min-width:0;transition:transform .15s}
+.demo:hover{transform:translateY(-4px)}
+.thumb{position:relative;height:150px;display:flex;flex-direction:column;justify-content:center;gap:4px;padding:26px 14px 12px;overflow:hidden;border-bottom:3px solid var(--line)}
+@media(min-width:861px){.thumb{height:190px;padding:30px 20px 14px}}
+.thumb b{font-size:clamp(17px,4.4vw,26px);line-height:1.05;font-weight:400}
+.thumb small{font-size:13px;opacity:.8}
+.thumb .dots{position:absolute;top:8px;left:10px;display:flex;gap:4px}
+.thumb .dots::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.35;box-shadow:12px 0 0 currentColor,24px 0 0 currentColor}
+.swatches{display:flex;gap:6px;margin-top:6px}.swatches span{width:22px;height:22px}
+.pulse{display:block;height:24px;margin-top:6px;background:linear-gradient(90deg,transparent 0 30%,#FF6B57 30% 32%,transparent 32% 40%,#FF6B57 40% 42%,transparent 42%);opacity:.9}
+.meta{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 14px 4px}
+.meta b{font-size:17px}
+.tbadge{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:2px solid var(--line)}
+.t-pro{background:var(--fg);color:var(--accent)}.t-adv{background:var(--accent);color:var(--on-accent)}.t-basic{background:transparent}
+.go{padding:4px 14px 14px;font-weight:700;color:var(--fg)}
+.cvdemo{margin-top:18px;color:var(--bg);border-color:var(--bg)}
+.tryl{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:10px}
+.tryrow{display:flex;gap:8px;flex-wrap:wrap}
+.tryrow a{flex:1;min-width:130px;text-align:center;border:2px solid currentColor;padding:10px 8px;font-weight:700;font-size:14px;text-decoration:none;color:inherit;min-height:44px;display:flex;align-items:center;justify-content:center}
+.tryrow a:hover{background:var(--accent);color:var(--on-accent);border-color:var(--line)}
+.fab{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;background:var(--accent);color:var(--on-accent);border:3px solid #111;box-shadow:4px 4px 0 #111;font-weight:700;font-size:16px;padding:12px 22px;text-decoration:none;white-space:nowrap;transition:opacity .25s,transform .25s}
+.fab.off{opacity:0;pointer-events:none;transform:translate(-50%,20px)}
+@media (prefers-reduced-motion:reduce){.demo:hover{transform:none}.fab{transition:none}}
+
 /* fix + CV tiers */
 .tcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 @media(max-width:860px){.tcards{grid-template-columns:minmax(0,1fr)}}
@@ -134,6 +164,7 @@ section{padding-block:36px}
 .tc .seeex{text-align:left;margin:0}
 .tc.dark .seeex{color:var(--pro-fg)}
 .tc.dark .btn{border-color:var(--accent)}
+.tier.pro .tryrow a:hover{color:#111}
 
 /* plain-English terms */
 .terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;border-top:3px solid var(--line)}
@@ -176,15 +207,34 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
     <div class="wrap">
       <span class="eyebrow">You scanned it. Good.</span>
       <h1>Websites, website fixes and CVs.</h1>
-      <p>Every package below lists exactly what you get, line by line, in the same order. Compare them, pick one, and message me. If you're not sure which fits, ask and I'll tell you honestly.</p>
+      <p>Start by trying a demo site below. They work like real websites. Then compare the packages, pick one, and message me. If you're not sure which fits, ask and I'll tell you honestly.</p>
       <div class="jump">
-        <a class="btn ghost" href="#websites">New website</a>
-        <a class="btn ghost" href="#examples">Example sites</a>
+        <a class="btn" href="#examples">Try a demo site ↓</a>
+        <a class="btn ghost" href="#websites">Prices</a>
         <a class="btn ghost" href="#fix">Fix my website</a>
         <a class="btn ghost" href="#cv">CVs</a>
       </div>
     </div>
   </div>
+
+  <section id="examples" class="demos" aria-labelledby="ex-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Don't skip this part</span>
+        <h2 id="ex-h">6 demo sites. Tap one and play.</h2>
+        <p>Book a gym class, add clothes to a cart, open a restaurant's gallery. Everything works. This is what your customers would see.</p>
+      </div>
+      <div class="demogrid">
+        <a class="demo" href="ex-pro-shop.html"><span class="thumb" style="background:#F6F4EE;color:#1E2318"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif">ubuntu<span style="color:#B5532E">/</span>threads</b><small>Shop · cart · checkout</small><span class="swatches"><span style="background:#2C3E74"></span><span style="background:#3F4F2A"></span><span style="background:#B5532E"></span></span></span><span class="meta"><span class="tbadge t-pro">Pro</span><b>Clothing shop</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-pro-gym.html"><span class="thumb" style="background:#0F1B33;color:#F2F4FA"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif">PULSE<span style="color:#FF6B57">.</span>FITNESS</b><small>Book &amp; pay for classes</small><span class="pulse"></span></span><span class="meta"><span class="tbadge t-pro">Pro</span><b>Gym bookings</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-adv-grill.html"><span class="thumb" style="background:radial-gradient(ellipse at 50% 120%,#E9A23B,#C4502A 30%,#16110D 70%);color:#F3E6D6"><i class="dots"></i><b style="font-family:Georgia,serif;font-style:italic">Kasi Grill House</b><small>Menu · gallery · bookings</small></span><span class="meta"><span class="tbadge t-adv">Advanced</span><b>Restaurant</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-adv-studio.html"><span class="thumb" style="background:#FFFFFF;color:#0E0E0E"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif;text-transform:lowercase">naledi<span style="color:#3D5AFE">.</span>studio</b><small>Portfolio · packages</small><span class="swatches"><span style="background:#C9B8A6"></span><span style="background:#3D5AFE"></span><span style="background:#8FA98A"></span></span></span><span class="meta"><span class="tbadge t-adv">Advanced</span><b>Photographer</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-basic-salon.html"><span class="thumb" style="background:#FBF3EE;color:#3A1F1A"><i class="dots"></i><b style="font-family:Georgia,serif">Thandi's <i style="color:#C2577A">Braids</i></b><small>Prices · photos · map</small></span><span class="meta"><span class="tbadge t-basic">Basic</span><b>Hair salon</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-basic-plumber.html"><span class="thumb" style="background:#0B4FD6;color:#FFFFFF"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif;text-transform:uppercase">Mokoena <span style="color:#FF7A1A">Plumbing</span></b><small>Services · call now</small></span><span class="meta"><span class="tbadge t-basic">Basic</span><b>Plumber</b></span><span class="go">Try it →</span></a>
+      </div>
+      <a class="btn ghost cvdemo" href="ex-cv.html">Need a CV instead? See sample CVs →</a>
+    </div>
+  </section>
 
   <section id="websites">
     <div class="wrap">
@@ -213,7 +263,7 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
           <div class="row"><span class="lab">Animation</span><span class="val">Simple fade-ins as the page loads</span></div>
           <div class="row"><span class="lab">Changes after I show you</span><span class="val">1 round</span></div>
           <div class="row"><span class="lab">Ready in</span><span class="val">3 days</span></div>
-          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Basic%20website%20(R1%2C500)." target="_blank" rel="noopener">Ask about Basic</a><a class="seeex" href="#examples">See 2 Basic examples</a></div>
+          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Basic%20website%20(R1%2C500)." target="_blank" rel="noopener">Ask about Basic</a><span class="tryl">Try it first:</span><div class="tryrow"><a href="ex-basic-salon.html">Salon demo →</a><a href="ex-basic-plumber.html">Plumber demo →</a></div></div>
         </article>
 
         <!-- ADVANCED -->
@@ -234,7 +284,7 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
           <div class="row"><span class="lab">Animation</span><span class="val">Smooth scrolling, headlines that slide in word by word, photos that reveal as you scroll<span class="up">Upgrade</span></span></div>
           <div class="row"><span class="lab">Changes after I show you</span><span class="val">2 rounds</span></div>
           <div class="row"><span class="lab">Ready in</span><span class="val">About 1 week</span></div>
-          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Advanced%20website%20(R3%2C500)." target="_blank" rel="noopener">Ask about Advanced</a><a class="seeex" href="#examples">See 2 Advanced examples</a></div>
+          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Advanced%20website%20(R3%2C500)." target="_blank" rel="noopener">Ask about Advanced</a><span class="tryl">Try it first:</span><div class="tryrow"><a href="ex-adv-grill.html">Restaurant demo →</a><a href="ex-adv-studio.html">Photographer demo →</a></div></div>
         </article>
 
         <!-- PRO -->
@@ -255,38 +305,11 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
           <div class="row"><span class="lab">Animation</span><span class="val">A scroll story: your product comes apart or comes to life as customers scroll, plus premium effects<span class="up">Upgrade</span></span></div>
           <div class="row"><span class="lab">Changes after I show you</span><span class="val">2 rounds, plus 30 days of support after launch<span class="up">Upgrade</span></span></div>
           <div class="row"><span class="lab">Ready in</span><span class="val">2 to 3 weeks</span></div>
-          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Pro%20website%20(from%20R7%2C500)." target="_blank" rel="noopener">Ask about Pro</a><a class="seeex" href="#examples" style="color:var(--pro-fg)">See 2 Pro examples</a></div>
+          <div class="tier-foot"><a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Pro%20website%20(from%20R7%2C500)." target="_blank" rel="noopener">Ask about Pro</a><span class="tryl">Try it first:</span><div class="tryrow"><a href="ex-pro-shop.html">Shop demo →</a><a href="ex-pro-gym.html">Gym demo →</a></div></div>
         </article>
       </div>
 
       <p class="note">*A .co.za name costs about R100 a year, paid by you, so it stays yours. Pro starts at R7,500; the final price depends on how many products and features you need, and I'll quote it before we start. Add a Care plan (R250/month) to any package and I'll keep it up to date for you.</p>
-    </div>
-  </section>
-
-  <section id="examples" aria-labelledby="ex-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Try before you buy</span>
-        <h2 id="ex-h">Example websites</h2>
-        <p>Two sample sites for each package, each in a different style. Tap around: the menus, galleries, forms and carts all work. They're made-up businesses, so your site would use your name, photos and prices.</p>
-      </div>
-      <div class="exgroups">
-        <div class="exg">
-          <div class="exg-h"><b>Basic</b><span>One page · light motion</span></div>
-          <a class="ex" href="ex-basic-salon.html"><span class="sw" style="background:linear-gradient(140deg,#7A3A4E,#C2577A)"></span><span><b>Thandi's Braids</b><small>Hair salon · soft and elegant</small></span></a>
-          <a class="ex" href="ex-basic-plumber.html"><span class="sw" style="background:linear-gradient(140deg,#0B4FD6 60%,#FF7A1A 60%)"></span><span><b>Mokoena Plumbing</b><small>Trade service · bold and direct</small></span></a>
-        </div>
-        <div class="exg">
-          <div class="exg-h"><b>Advanced</b><span>5 pages · smooth scroll</span></div>
-          <a class="ex" href="ex-adv-grill.html"><span class="sw" style="background:radial-gradient(ellipse at 50% 100%,#E9A23B,#C4502A 35%,#16110D 70%)"></span><span><b>Kasi Grill House</b><small>Restaurant · dark and warm</small></span></a>
-          <a class="ex" href="ex-adv-studio.html"><span class="sw" style="background:linear-gradient(140deg,#fff 55%,#3D5AFE 55%);border:1px solid #ccc"></span><span><b>Naledi Photo Studio</b><small>Photographer · clean and minimal</small></span></a>
-        </div>
-        <div class="exg">
-          <div class="exg-h"><b>Pro</b><span>Sell online · scroll story</span></div>
-          <a class="ex" href="ex-pro-shop.html"><span class="sw" style="background:linear-gradient(140deg,#3F4F2A 55%,#B5532E 55%)"></span><span><b>Ubuntu Threads</b><small>Clothing shop · cart, checkout, dashboard</small></span></a>
-          <a class="ex" href="ex-pro-gym.html"><span class="sw" style="background:linear-gradient(140deg,#0F1B33 55%,#FF6B57 55%)"></span><span><b>Pulse Fitness</b><small>Gym · paid class bookings, memberships</small></span></a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -421,6 +444,14 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
   </div>
 </section>
 
+<a class="fab" id="fab" href="#examples">Try a demo site ↓</a>
+<script>
+(function(){
+  var fab=document.getElementById('fab'),demos=document.getElementById('examples');
+  if(!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(e){fab.classList.toggle('off',e[0].isIntersecting);fab.textContent='Try a demo site '+(e[0].boundingClientRect.top>0?'\u2193':'\u2191');},{threshold:0.15}).observe(demos);
+})();
+</script>
 <footer><div class="wrap">Websites · Website fixes · CVs · Samuel Olajide</div></footer>
 
 <script>
