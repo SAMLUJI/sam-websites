@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sample CVs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+[hidden]{display:none!important}
+:root{--bg:#E9E6DD;--ink:#111;--muted:#5B5850;--accent:#FFD400;--paper:#fff;
+  --disp:'Archivo Black','Arial Black',sans-serif;--ui:'Space Grotesk',system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom,0px)}
+.sambar{background:#111;color:#FFD400;font:700 13px/1.3 system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));padding-top:max(10px,env(safe-area-inset-top,0px));display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.sambar button{font:inherit;background:#FFD400;color:#111;border:0;padding:8px 12px;min-height:36px;cursor:pointer}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--disp);font-weight:400;margin:0;line-height:1}
+:focus-visible{outline:3px solid #111;outline-offset:3px}
+.head{padding-block:32px 18px;display:flex;flex-direction:column;gap:10px}
+.head h1{font-size:clamp(38px,7vw,68px)}
+.head p{margin:0;color:var(--muted);max-width:60ch}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:20px}
+.tabs button{border:3px solid #111;background:#fff;font:700 15px var(--ui);padding:10px 16px;min-height:48px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
+.tabs button small{font-weight:500;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:#111;color:#fff}
+.tabs button[aria-pressed="true"] small{color:#ccc}
+.tier-info{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline;border-top:3px solid #111;padding-top:14px;margin-bottom:18px}
+.tier-info h2{font-size:30px}
+.tier-info .pr{font-family:var(--disp);font-size:30px}
+.tier-info p{flex-basis:100%;margin:0;color:var(--muted)}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+@media(max-width:820px){.duo{grid-template-columns:minmax(0,1fr)}}
+.lbl{font:700 12px var(--ui);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.lbl .dot{width:10px;height:10px;border-radius:50%}
+.paper{background:var(--paper);box-shadow:0 2px 0 rgba(0,0,0,.08),0 18px 40px -20px rgba(0,0,0,.35);padding:30px 30px 34px;min-width:0;overflow-wrap:anywhere}
+/* BEFORE: what a typical first CV looks like */
+.before{font-family:'Times New Roman',Times,serif;font-size:14px;line-height:1.35;color:#222}
+.before h3{text-align:center;font-size:22px;text-decoration:underline;margin:0 0 4px}
+.before .c{text-align:center}
+.before b{font-weight:700}
+.before p{margin:6px 0}
+.before .sec{margin-top:12px;font-weight:700;text-decoration:underline;text-transform:uppercase}
+.note{display:inline-block;background:#FFE3E0;color:#9B1C10;font:600 11px var(--ui);padding:1px 6px;margin-left:4px;vertical-align:1px}
+/* AFTER: clean */
+.cv{font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:1.5;color:#1A1A1A}
+.cv .name{font:700 26px/1.1 'Source Serif 4',Georgia,serif;margin:0}
+.cv .role{color:#1F5C4A;font-weight:600;margin:2px 0 8px}
+.cv .contact{display:flex;flex-wrap:wrap;gap:4px 14px;color:#555;font-size:12px;border-bottom:2px solid #1F5C4A;padding-bottom:10px}
+.cv h4{font:700 11px var(--ui);letter-spacing:.14em;text-transform:uppercase;color:#1F5C4A;margin:14px 0 6px}
+.cv .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.cv .row b{font-weight:600}
+.cv .row span{color:#666;font-size:12px}
+.cv ul{margin:4px 0 0;padding-left:18px}
+.cv li{margin:2px 0}
+.cv .skills{display:flex;flex-wrap:wrap;gap:6px}
+.cv .skills span{background:#EEF4F1;color:#1F5C4A;padding:2px 8px;border-radius:3px;font-size:12px}
+.cv2{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px}
+@media(max-width:520px){.cv2{grid-template-columns:minmax(0,1fr)}}
+.cv2 .side{background:#132B3F;color:#E7EEF4;margin:-30px 0 -34px -30px;padding:30px 16px 34px 30px}
+@media(max-width:520px){.cv2 .side{margin:-30px -30px 0 -30px;padding:24px 30px}}
+.cv2 .side h4{color:#8FC1E3}
+.cv2 .side .name{color:#fff;font-size:22px}
+.cv2 .side p{margin:2px 0;font-size:12px}
+.cv2 .main h4{color:#132B3F}
+.metric{font-weight:700;color:#132B3F}
+.letter{font-family:'Source Serif 4',Georgia,serif;font-size:14px;line-height:1.6}
+.letter p{margin:0 0 10px}
+.li{font-family:'Inter',system-ui,sans-serif;padding:0;overflow:hidden}
+.li .banner{height:80px;background:linear-gradient(120deg,#132B3F,#1F5C4A)}
+.li .body{padding:0 22px 22px}
+.li .av{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 50% 38%,#C9A88C 0 22%,transparent 23%),radial-gradient(ellipse at 50% 95%,#C9A88C 0 40%,#5D7A8C 41%);border:4px solid #fff;margin-top:-42px}
+.li h5{font-size:20px;margin:8px 0 0}
+.li .hl{margin:2px 0 6px;color:#333;font-size:14px}
+.li .loc{color:#666;font-size:12px}
+.li .about{margin-top:12px;border-top:1px solid #eee;padding-top:12px;font-size:13px;color:#333}
+.li .pill{display:inline-block;background:#E8F3EC;color:#1F5C4A;border:1px solid #1F5C4A;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;margin-top:8px}
+.stack{display:flex;flex-direction:column;gap:22px}
+.changes{margin:18px 0 0;padding:16px 18px;background:#fff;border:3px solid #111;display:flex;flex-direction:column;gap:6px}
+.changes b{font-family:var(--disp);font-weight:400;font-size:18px}
+.changes ul{margin:0;padding-left:18px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 40px}
+.btn{display:inline-flex;align-items:center;min-height:50px;padding:0 20px;background:var(--accent);color:#111;border:3px solid #111;font-weight:700;text-decoration:none}
+.fine{color:var(--muted);font-size:13px;margin:0 0 30px}
+</style>
+</head>
+<body>
+<div class="sambar"><span>Sample CVs · made-up person, real level of work</span><button type="button" onclick="location.href='/#cv'">← Back to packages</button></div>
+
+<header class="wrap head">
+  <h1>Sample CVs</h1>
+  <p>The same person at three levels of service. Pick a package to see what you'd get back.</p>
+</header>
+
+<main class="wrap">
+  <div class="tabs" role="group" aria-label="CV packages">
+    <button type="button" data-t="quick" aria-pressed="true">Quick fix<small>R150</small></button>
+    <button type="button" data-t="rewrite" aria-pressed="false">Full rewrite<small>R350</small></button>
+    <button type="button" data-t="pack" aria-pressed="false">Job-ready pack<small>R600</small></button>
+  </div>
+
+  <!-- QUICK FIX -->
+  <section id="t-quick">
+    <div class="tier-info"><h2>Quick fix</h2><span class="pr">R150</span><p>Your words, cleaned up. I fix layout, spelling, grammar and order, and remove things that put recruiters off. Ready in 24 hours.</p></div>
+    <div class="duo">
+      <div>
+        <div class="lbl"><span class="dot" style="background:#C8102E"></span>Before</div>
+        <div class="paper before">
+          <h3>CURRICULUM VITAE</h3>
+          <p class="c"><b>THANDEKA PRECIOUS NKOSI</b></p>
+          <p class="c">ID No: 990412 xxxx xxx <span class="note">remove</span><br>Marital status: Single <span class="note">not needed</span><br>Religion: Christian <span class="note">not needed</span></p>
+          <p class="sec">Career objective</p>
+          <p>To obtain a challenging position in a reputable company where I can utilise my skills and grow. <span class="note">says nothing</span></p>
+          <p class="sec">Educational background</p>
+          <p>Matric - Ga-Rankuwa High School - 2017 <span class="note">wrong order</span><br>Bpharm - SMU - 2024</p>
+          <p class="sec">Experience</p>
+          <p>Clicks Pharmacy - was responsible for helping customers and doing stock. Also did dispensing with pharmacist.</p>
+          <p class="sec">Skills</p>
+          <p>Hardworking, team player, fast learner, computer literate <span class="note">everyone says this</span></p>
+          <p class="sec">References</p>
+          <p>Available on request</p>
+        </div>
+      </div>
+      <div>
+        <div class="lbl"><span class="dot" style="background:#1F8F4E"></span>After quick fix</div>
+        <div class="paper cv">
+          <p class="name">Thandeka Nkosi</p>
+          <p class="role">Pharmacy graduate</p>
+          <div class="contact"><span>Ga-Rankuwa, Pretoria</span><span>071 000 0000</span><span>thandeka.nkosi@example.com</span></div>
+          <h4>Education</h4>
+          <div class="row"><b>BPharm, Sefako Makgatho Health Sciences University</b><span>2024</span></div>
+          <div class="row"><b>National Senior Certificate, Ga-Rankuwa High School</b><span>2017</span></div>
+          <h4>Experience</h4>
+          <div class="row"><b>Pharmacy Assistant (student), Clicks Pharmacy</b><span>2022 – 2023</span></div>
+          <ul><li>Helped customers find products and answered their questions</li><li>Received and counted stock deliveries</li><li>Assisted the pharmacist with dispensing</li></ul>
+          <h4>Skills</h4>
+          <div class="skills"><span>Dispensing</span><span>Stock control</span><span>Customer service</span><span>MS Office</span></div>
+          <h4>References</h4>
+          <p style="margin:0">Available on request</p>
+        </div>
+      </div>
+    </div>
+    <div class="changes"><b>What changed</b><ul><li>Removed ID number, marital status and religion (risky and not needed)</li><li>Newest qualification first, consistent dates</li><li>Clean one-page layout that's easy to skim</li></ul></div>
+  </section>
+
+  <!-- FULL REWRITE -->
+  <section id="t-rewrite" hidden>
+    <div class="tier-info"><h2>Full rewrite</h2><span class="pr">R350</span><p>Rewritten from scratch around the job you want. Results instead of duties, a summary that sells you, and a modern design that passes recruiters' screening software. 1 round of changes, ready in 48 hours.</p></div>
+    <div class="duo">
+      <div class="paper cv">
+        <p class="name">Thandeka Nkosi</p>
+        <p class="role">Pharmacist Intern · Community &amp; Hospital Pharmacy</p>
+        <div class="contact"><span>Pretoria</span><span>071 000 0000</span><span>thandeka.nkosi@example.com</span><span>linkedin.com/in/thandekankosi</span></div>
+        <h4>Profile</h4>
+        <p style="margin:0">BPharm graduate with two years of retail pharmacy experience and a hospital rotation at George Mukhari. Known for accurate dispensing under pressure and explaining medicines clearly to patients. Looking for a 2025 internship in community or hospital pharmacy.</p>
+        <h4>Experience</h4>
+        <div class="row"><b>Pharmacy Assistant (student), Clicks Pharmacy, Pretoria North</b><span>2022 – 2023</span></div>
+        <ul><li>Served <span class="metric">60+ customers a shift</span> during weekend and holiday trading</li><li>Cut stock-count errors by setting up a weekly shelf check for chronic medicines</li><li>Prepared prescriptions for pharmacist sign-off with <span class="metric">zero dispensing errors</span> recorded</li></ul>
+        <div class="row" style="margin-top:8px"><b>Hospital rotation, George Mukhari Academic Hospital</b><span>2024</span></div>
+        <ul><li>Reviewed medication charts in the medical wards with the ward pharmacist</li><li>Counselled patients on discharge medicines, including TB and ARV regimens</li></ul>
+        <h4>Education</h4>
+        <div class="row"><b>BPharm, Sefako Makgatho Health Sciences University</b><span>2024</span></div>
+        <h4>Skills</h4>
+        <div class="skills"><span>Dispensing &amp; checking</span><span>Patient counselling</span><span>Chronic medication</span><span>Stock control</span><span>isiZulu, Setswana, English</span></div>
+      </div>
+      <div class="stack">
+        <div class="changes" style="margin:0"><b>What the full rewrite adds</b><ul><li>A profile that says who you are and what job you want</li><li>Results with numbers, not a list of duties</li><li>Relevant experience you forgot to mention (like the hospital rotation)</li><li>Written for the job: words recruiters and screening software search for</li><li>Languages and specialised skills that set you apart</li></ul></div>
+        <div class="changes" style="margin:0"><b>What I need from you</b><ul><li>Your current CV, even if it's rough</li><li>The job or type of job you're applying for</li><li>A 10-minute WhatsApp voice chat about what you've done</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOB-READY PACK -->
+  <section id="t-pack" hidden>
+    <div class="tier-info"><h2>Job-ready pack</h2><span class="pr">R600</span><p>Everything in the full rewrite, in a premium design, plus a cover letter and a LinkedIn profile that match. Tailored to 2 types of job, 2 rounds of changes, ready in 3 days.</p></div>
+    <div class="duo">
+      <div class="paper cv cv2">
+        <div class="side">
+          <p class="name">Thandeka Nkosi</p>
+          <p style="color:#8FC1E3;font-weight:600;margin-bottom:12px">Pharmacist Intern</p>
+          <h4>Contact</h4><p>071 000 0000</p><p>thandeka.nkosi@example.com</p><p>Pretoria</p>
+          <h4>Skills</h4><p>Dispensing &amp; checking</p><p>Patient counselling</p><p>Chronic medication</p><p>Stock control</p>
+          <h4>Languages</h4><p>isiZulu · Setswana · English</p>
+        </div>
+        <div class="main">
+          <h4 style="margin-top:0">Profile</h4>
+          <p style="margin:0">BPharm graduate with two years of retail pharmacy and a hospital rotation. Accurate under pressure and clear with patients.</p>
+          <h4>Experience</h4>
+          <div class="row"><b>Pharmacy Assistant, Clicks</b><span>2022–23</span></div>
+          <ul><li><span class="metric">60+ customers</span> a shift</li><li><span class="metric">Zero</span> dispensing errors recorded</li><li>Weekly chronic-shelf check cut count errors</li></ul>
+          <div class="row" style="margin-top:6px"><b>Rotation, George Mukhari Hospital</b><span>2024</span></div>
+          <ul><li>Ward chart reviews</li><li>Discharge counselling (TB, ARV)</li></ul>
+          <h4>Education</h4>
+          <div class="row"><b>BPharm, SMU</b><span>2024</span></div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="paper letter">
+          <p style="font-family:Inter,sans-serif;font-size:12px;color:#666">Cover letter</p>
+          <p>Dear Ms Mahlangu,</p>
+          <p>I'm applying for the pharmacist internship at Dis-Chem Menlyn. Over two years at Clicks I served 60 or more customers a shift and kept a clean dispensing record, and my rotation at George Mukhari taught me to counsel patients on complex regimens in their own language.</p>
+          <p>I'd bring that same care to your team…</p>
+        </div>
+        <div class="paper li">
+          <div class="banner"></div>
+          <div class="body">
+            <div class="av" role="img" aria-label="Profile photo placeholder"></div>
+            <h5>Thandeka Nkosi</h5>
+            <p class="hl">Pharmacist Intern | BPharm (SMU) | Patient counselling in isiZulu, Setswana &amp; English</p>
+            <span class="loc">Pretoria, Gauteng</span><br>
+            <span class="pill">Open to work: Pharmacist Intern</span>
+            <div class="about"><b>About</b><br>Pharmacy graduate who loves the moment a patient finally understands their treatment…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <a class="btn" id="ask" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'd%20like%20the%20Quick%20fix%20CV%20(R150)." target="_blank" rel="noopener">WhatsApp me for this package</a>
+  </div>
+  <p class="fine">Thandeka is a made-up person. Your CV uses your real details and is never shared.</p>
+</main>
+
+<script>
+(function(){
+  var T={quick:'Quick fix CV (R150)',rewrite:'Full rewrite CV (R350)',pack:'Job-ready pack (R600)'};
+  var btns=[].slice.call(document.querySelectorAll('.tabs button'));
+  function show(t){if(!T[t])t='quick';
+    Object.keys(T).forEach(function(k){document.getElementById('t-'+k).hidden=(k!==t);});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===t?'true':'false');});
+    document.getElementById('ask').href='https://wa.me/27787569592?text='+encodeURIComponent("Hi Sam, I'd like the "+T[t]+".");}
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t);}catch(e){}});});
+  show((location.hash||'').slice(1));
+  addEventListener('hashchange',function(){show(location.hash.slice(1));});
+})();
+</script>
+<script>
+/* visit counter: counts page opens and WhatsApp taps, no personal data */
+(function(){
+  var U='https://sam-stats.onrender.com/hit',id='';
+  try{id=localStorage.getItem('sv');if(!id){id=Math.random().toString(36).slice(2,12);localStorage.setItem('sv',id);}}catch(e){}
+  function send(e,x){
+    var q=U+'?e='+e+'&p='+encodeURIComponent(location.pathname)+'&v='+id+(x?'&x='+encodeURIComponent(x):'');
+    try{if(navigator.sendBeacon&&navigator.sendBeacon(q))return;}catch(e){}
+    try{fetch(q,{method:'POST',mode:'no-cors',keepalive:true});}catch(e){}
+  }
+  send('view');
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a[href*="wa.me"]');
+    if(!a)return;
+    var t='';try{t=decodeURIComponent((a.href.split('text=')[1]||'').replace(/\+/g,' ')).slice(0,90);}catch(e){}
+    send('whatsapp',t);
+  },true);
+})();
+</script>
+</body>
+</html>

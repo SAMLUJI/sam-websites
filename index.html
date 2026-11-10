@@ -6,10 +6,10 @@
 <title>Sam's Websites &amp; CVs</title>
 <meta name="description" content="Websites from R1,500, website fixes and CV rewrites by Samuel Olajide. Compare Basic, Advanced and Pro packages and see example sites.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sam-websites.netlify.app/">
+<meta property="og:url" content="https://sam-websites.onrender.com/">
 <meta property="og:title" content="Websites from R1,500 · CVs · Website fixes">
 <meta property="og:description" content="Compare Basic, Advanced and Pro side by side and try 6 example sites. WhatsApp Sam: 078 756 9592.">
-<meta property="og:image" content="https://sam-websites.netlify.app/og.png">
+<meta property="og:image" content="https://sam-websites.onrender.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -117,6 +117,23 @@ section{padding-block:36px}
 .ex small{color:var(--muted);font-size:14px}
 .ex::after{content:"→";margin-left:auto;font-weight:700;font-size:20px}
 .seeex{display:block;text-align:center;margin-top:10px;font-weight:700}
+
+/* fix + CV tiers */
+.tcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media(max-width:860px){.tcards{grid-template-columns:minmax(0,1fr)}}
+.tc{border:3px solid var(--line);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tc.dark{background:var(--pro-bg);color:var(--pro-fg);border-color:var(--pro-bg)}
+.tc-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tc-top h3{font-size:28px}
+.tc-pr{font-family:var(--display);font-size:28px;white-space:nowrap}
+.tc-pr small{font-family:var(--body);font-size:14px;font-weight:700}
+.tc-for{margin:0;color:var(--muted);font-size:15px}
+.tc.dark .tc-for,.tc.dark .tc-when{color:var(--pro-muted)}
+.tc .plain{flex:1}
+.tc-when{font-weight:700;font-size:14px;color:var(--muted)}
+.tc .seeex{text-align:left;margin:0}
+.tc.dark .seeex{color:var(--pro-fg)}
+.tc.dark .btn{border-color:var(--accent)}
 
 /* plain-English terms */
 .terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;border-top:3px solid var(--line)}
@@ -242,7 +259,7 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
         </article>
       </div>
 
-      <p class="note">*A .co.za name costs about R100 a year, paid by you, so it stays yours. Pro starts at R7,500; the final price depends on how many products and features you need, and I'll quote it before we start. A monthly care plan (updates and fixes after launch) is available on any package.</p>
+      <p class="note">*A .co.za name costs about R100 a year, paid by you, so it stays yours. Pro starts at R7,500; the final price depends on how many products and features you need, and I'll quote it before we start. Add a Care plan (R250/month) to any package and I'll keep it up to date for you.</p>
     </div>
   </section>
 
@@ -290,32 +307,103 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
   </section>
 
   <section id="fix" aria-labelledby="fix-h">
-    <div class="wrap services">
-      <div class="svc">
+    <div class="wrap">
+      <div class="sec-head">
         <span class="eyebrow">Already have a website?</span>
-        <h3 id="fix-h">Fix my website</h3>
-        <p>Send me the link and tell me what's wrong. I'll look at it and quote you before I touch anything.</p>
-        <ul class="plain">
-          <li>Broken links, buttons or forms</li>
-          <li>Looks bad or breaks on phones</li>
-          <li>Old prices, photos or contact details</li>
-          <li>Slow to load</li>
-          <li>Not showing up on Google</li>
-        </ul>
-        <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I%20need%20my%20website%20fixed.%20Here's%20the%20link%3A%20" target="_blank" rel="noopener">Send me your link</a>
+        <h2 id="fix-h">Fix my website</h2>
+        <p>Fixed prices, so you know the cost before I start. Send me your link and I'll tell you which one you need. If your site is beyond saving, I'll say so honestly and quote a new one instead.</p>
       </div>
+      <div class="tcards">
+        <article class="tc">
+          <div class="tc-top"><h3>Small fix</h3><span class="tc-pr">R300</span></div>
+          <p class="tc-for">For: a site that works, but something's wrong or out of date.</p>
+          <ul class="plain">
+            <li>Up to 3 small changes</li>
+            <li>New prices, photos, hours or contact details</li>
+            <li>One broken link or button fixed</li>
+          </ul>
+          <span class="tc-when">Done in 2 days</span>
+          <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I%20need%20a%20Small%20fix%20(R300)%20on%20my%20website.%20Here's%20the%20link%3A%20" target="_blank" rel="noopener">Ask about Small fix</a>
+        </article>
+        <article class="tc">
+          <div class="tc-top"><h3>Repair</h3><span class="tc-pr">R800</span></div>
+          <p class="tc-for">For: a site that looks bad on phones, breaks, or nobody can find.</p>
+          <ul class="plain">
+            <li>Fix the layout on phones</li>
+            <li>Fix broken forms, buttons and links</li>
+            <li>Make it load faster</li>
+            <li>Set up your Google Business profile</li>
+            <li>Sites up to 5 pages</li>
+          </ul>
+          <span class="tc-when">Done in 3 days</span>
+          <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I%20need%20a%20Repair%20(R800)%20on%20my%20website.%20Here's%20the%20link%3A%20" target="_blank" rel="noopener">Ask about Repair</a>
+        </article>
+        <article class="tc">
+          <div class="tc-top"><h3>Care plan</h3><span class="tc-pr">R250<small>/month</small></span></div>
+          <p class="tc-for">For: anyone who wants their site kept up to date without thinking about it.</p>
+          <ul class="plain">
+            <li>Up to 5 small changes every month</li>
+            <li>Monthly check that everything works</li>
+            <li>Reminder before your web address renews</li>
+            <li>Cancel any time</li>
+          </ul>
+          <span class="tc-when">Changes done within 2 days</span>
+          <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'm%20interested%20in%20the%20Care%20plan%20(R250%2Fmonth)." target="_blank" rel="noopener">Ask about Care plan</a>
+        </article>
+      </div>
+      <p class="note">Online shops and custom systems are quoted after I look at them. Works with Wix, WordPress and most simple sites.</p>
+    </div>
+  </section>
 
-      <div class="svc" id="cv">
-        <span class="eyebrow">Ready in 24 hours</span>
-        <h3>CVs &amp; cover letters</h3>
-        <p>Recruiters skim. I rewrite your CV so the important things are easy to see and it gets you the interview.</p>
-        <div class="lines">
-          <div class="line"><span>CV rewrite</span><span>Price on WhatsApp</span></div>
-          <div class="line"><span>Cover letter</span><span>Price on WhatsApp</span></div>
-          <div class="line"><span>LinkedIn profile</span><span>Price on WhatsApp</span></div>
-        </div>
-        <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'd%20like%20help%20with%20my%20CV." target="_blank" rel="noopener">Ask about CVs</a>
+  <section id="cv" aria-labelledby="cv-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Get the interview</span>
+        <h2 id="cv-h">CVs</h2>
+        <p>Recruiters skim a CV in seconds. Pick how much help you need, and see a sample of each level before you pay.</p>
       </div>
+      <div class="tcards">
+        <article class="tc">
+          <div class="tc-top"><h3>Quick fix</h3><span class="tc-pr">R150</span></div>
+          <p class="tc-for">For: a CV that has the right things, but looks messy.</p>
+          <ul class="plain">
+            <li>Your words, cleaned up</li>
+            <li>Layout, spelling and grammar fixed</li>
+            <li>Remove things that put recruiters off</li>
+            <li>Clean one-page design</li>
+          </ul>
+          <span class="tc-when">Ready in 24 hours</span>
+          <a class="seeex" href="ex-cv.html#quick">See a before &amp; after</a>
+          <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'd%20like%20the%20Quick%20fix%20CV%20(R150)." target="_blank" rel="noopener">Ask about Quick fix</a>
+        </article>
+        <article class="tc">
+          <div class="tc-top"><h3>Full rewrite</h3><span class="tc-pr">R350</span></div>
+          <p class="tc-for">For: graduates and job-seekers applying for a specific kind of job.</p>
+          <ul class="plain">
+            <li>Rewritten from scratch for the job you want</li>
+            <li>Results instead of a list of duties</li>
+            <li>Passes recruiters' screening software</li>
+            <li>1 round of changes</li>
+          </ul>
+          <span class="tc-when">Ready in 48 hours</span>
+          <a class="seeex" href="ex-cv.html#rewrite">See a sample</a>
+          <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'd%20like%20the%20Full%20rewrite%20CV%20(R350)." target="_blank" rel="noopener">Ask about Full rewrite</a>
+        </article>
+        <article class="tc dark">
+          <div class="tc-top"><h3>Job-ready pack</h3><span class="tc-pr">R600</span></div>
+          <p class="tc-for">For: serious applications where you want to stand out.</p>
+          <ul class="plain">
+            <li>Everything in Full rewrite, in a premium design</li>
+            <li>Matching cover letter</li>
+            <li>LinkedIn profile written for you</li>
+            <li>Tailored to 2 types of job · 2 rounds of changes</li>
+          </ul>
+          <span class="tc-when">Ready in 3 days</span>
+          <a class="seeex" href="ex-cv.html#pack">See a sample</a>
+          <a class="btn" href="https://wa.me/27787569592?text=Hi%20Sam%2C%20I'd%20like%20the%20Job-ready%20pack%20(R600)." target="_blank" rel="noopener">Ask about Job-ready pack</a>
+        </article>
+      </div>
+      <p class="note">Just need one thing? Cover letter on its own R150 · LinkedIn profile on its own R200.</p>
     </div>
   </section>
 </main>
@@ -350,5 +438,24 @@ document.getElementById('copy').addEventListener('click', function(){
 });
 </script>
 
+<script>
+/* visit counter: counts page opens and WhatsApp taps, no personal data */
+(function(){
+  var U='https://sam-stats.onrender.com/hit',id='';
+  try{id=localStorage.getItem('sv');if(!id){id=Math.random().toString(36).slice(2,12);localStorage.setItem('sv',id);}}catch(e){}
+  function send(e,x){
+    var q=U+'?e='+e+'&p='+encodeURIComponent(location.pathname)+'&v='+id+(x?'&x='+encodeURIComponent(x):'');
+    try{if(navigator.sendBeacon&&navigator.sendBeacon(q))return;}catch(e){}
+    try{fetch(q,{method:'POST',mode:'no-cors',keepalive:true});}catch(e){}
+  }
+  send('view');
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a[href*="wa.me"]');
+    if(!a)return;
+    var t='';try{t=decodeURIComponent((a.href.split('text=')[1]||'').replace(/\+/g,' ')).slice(0,90);}catch(e){}
+    send('whatsapp',t);
+  },true);
+})();
+</script>
 </body>
 </html>

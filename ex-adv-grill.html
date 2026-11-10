@@ -251,5 +251,24 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
   play(document.getElementById('v-home'));
 })();
 </script>
+<script>
+/* visit counter: counts page opens and WhatsApp taps, no personal data */
+(function(){
+  var U='https://sam-stats.onrender.com/hit',id='';
+  try{id=localStorage.getItem('sv');if(!id){id=Math.random().toString(36).slice(2,12);localStorage.setItem('sv',id);}}catch(e){}
+  function send(e,x){
+    var q=U+'?e='+e+'&p='+encodeURIComponent(location.pathname)+'&v='+id+(x?'&x='+encodeURIComponent(x):'');
+    try{if(navigator.sendBeacon&&navigator.sendBeacon(q))return;}catch(e){}
+    try{fetch(q,{method:'POST',mode:'no-cors',keepalive:true});}catch(e){}
+  }
+  send('view');
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a[href*="wa.me"]');
+    if(!a)return;
+    var t='';try{t=decodeURIComponent((a.href.split('text=')[1]||'').replace(/\+/g,' ')).slice(0,90);}catch(e){}
+    send('whatsapp',t);
+  },true);
+})();
+</script>
 </body>
 </html>
