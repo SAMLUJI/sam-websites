@@ -139,7 +139,7 @@ section{padding-block:36px}
 .tbadge{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:2px solid var(--line)}
 .t-pro{background:var(--fg);color:var(--accent)}.t-adv{background:var(--accent);color:var(--on-accent)}.t-basic{background:transparent}
 .go{padding:4px 14px 14px;font-weight:700;color:var(--fg)}
-.cvdemo{margin-top:18px;color:var(--bg);border-color:var(--bg)}
+.cvdemo,.btn.ghost.cvdemo{margin-top:18px;color:var(--bg);border-color:var(--bg)}
 .tryl{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:10px}
 .tryrow{display:flex;gap:8px;flex-wrap:wrap}
 .tryrow a{flex:1;min-width:130px;text-align:center;border:2px solid currentColor;padding:10px 8px;font-weight:700;font-size:14px;text-decoration:none;color:inherit;min-height:44px;display:flex;align-items:center;justify-content:center}
@@ -193,6 +193,71 @@ ul.plain{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
 .contact .btn:hover{box-shadow:4px 4px 0 #111}
 .copied{font-weight:700}
 footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
+
+/* ---------- photography ---------- */
+img.ph-img{display:block;width:100%;height:100%;object-fit:cover}
+/* hero: copy left, photo collage right */
+@media(min-width:861px){
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;column-gap:56px;padding-block:56px 48px}
+  .hero .copy{display:flex;flex-direction:column;gap:18px}
+}
+.hero .copy{display:flex;flex-direction:column;gap:18px;min-width:0}
+.hv{position:relative;margin:8px 10px 18px 0;min-width:0}
+.hv-main{position:relative;aspect-ratio:4/5;border:3px solid var(--line);box-shadow:10px 10px 0 var(--line);overflow:hidden;background:#FFD400}
+@media(max-width:860px){.hv-main{aspect-ratio:5/4}}
+.hv-main img{object-position:50% 30%}
+.hv-small{position:absolute;left:-26px;bottom:-22px;width:38%;aspect-ratio:1;border:3px solid var(--line);overflow:hidden;box-shadow:6px 6px 0 var(--line);background:var(--surface)}
+@media(max-width:860px){.hv-small{left:-6px;width:30%}}
+.hv-note{position:absolute;right:-8px;top:26px;max-width:min(78%,300px);background:var(--surface);color:var(--fg);border:3px solid var(--line);box-shadow:5px 5px 0 var(--line);padding:10px 12px;font-size:14px;line-height:1.35;display:flex;gap:10px;align-items:flex-start}
+.hv-note i{flex:0 0 32px;height:32px;border-radius:50%;background:#25D366;display:grid;place-items:center;font-style:normal;color:#fff;font-weight:700}
+.hv-note b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hv-stamp{position:absolute;right:18px;bottom:22px;width:112px;height:112px;border-radius:50%;background:var(--fg);color:var(--accent);display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:15px;line-height:1.05;transform:rotate(-10deg);border:3px solid var(--accent)}
+.hv-stamp span{font-size:24px;display:block}
+@media(max-width:520px){.hv-stamp{width:88px;height:88px;font-size:12px}.hv-stamp span{font-size:19px}.hv-note{font-size:13px;top:12px}}
+@media(prefers-reduced-motion:no-preference){
+  .hv-note{animation:pop .6s .5s both cubic-bezier(.2,1.4,.4,1)}
+  .hv-stamp{animation:spinIn .7s .8s both cubic-bezier(.2,1.4,.4,1)}
+  @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.9)}}
+  @keyframes spinIn{from{opacity:0;transform:rotate(-60deg) scale(.6)}}
+}
+
+/* demo cards with real photos */
+.thumb.photo{color:#fff;justify-content:flex-end;background:#222}
+.thumb.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.thumb.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.78))}
+.thumb.photo > *:not(img){position:relative;z-index:1}
+.thumb.photo .dots{position:absolute;z-index:1;color:#fff}
+.thumb.photo b{text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.demo:hover .thumb.photo img{transform:scale(1.06)}
+@media(prefers-reduced-motion:reduce){.demo:hover .thumb.photo img{transform:none}}
+
+/* who it's for */
+.people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:860px){.people{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:10px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}.people::-webkit-scrollbar{display:none}.person{flex:0 0 72%;scroll-snap-align:start}}
+.person{position:relative;border:3px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.person .pi{aspect-ratio:4/5;overflow:hidden;border-bottom:3px solid var(--line)}
+.person .pi img{transition:transform .6s}
+.person:hover .pi img{transform:scale(1.05)}
+.person .pt{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+.person .pt b{font-family:var(--display);font-weight:400;font-size:20px;line-height:1.05}
+.person .pt span{color:var(--muted);font-size:15px}
+.person .tagp{position:absolute;top:10px;left:10px;background:var(--accent);color:#111;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:2px solid #111}
+.swipe{display:none;color:var(--muted);font-size:14px;margin-top:6px}
+@media(max-width:860px){.swipe{display:block}}
+
+/* section heads with a photo */
+.sec-media{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:end;margin-bottom:28px}
+.sec-media .sec-head{margin:0}
+.sec-media figure{margin:0;position:relative;aspect-ratio:16/10;border:3px solid var(--line);box-shadow:8px 8px 0 var(--line);overflow:hidden}
+.sec-media figure figcaption{position:absolute;left:10px;bottom:10px;background:var(--surface);color:var(--fg);border:2px solid var(--line);font-size:13px;font-weight:700;padding:3px 9px}
+@media(max-width:860px){.sec-media{grid-template-columns:minmax(0,1fr);gap:22px}.sec-media figure{order:-1;aspect-ratio:16/9;margin-right:8px}}
+
+/* contact with photo */
+.contact .wrap{position:relative}
+@media(min-width:861px){.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:40px;align-items:end}.contact .wrap > *:not(.cphoto){grid-column:1}.contact .cphoto{grid-column:2;grid-row:1 / span 4;align-self:stretch}}
+.cphoto{margin:0;border:3px solid #111;box-shadow:8px 8px 0 #111;overflow:hidden;min-height:260px;background:#FFD400}
+.cphoto img{object-position:50% 25%}
+@media(max-width:860px){.cphoto{aspect-ratio:4/3;min-height:0;margin:6px 8px 4px 0}}
 </style>
 
 <header class="top">
@@ -205,14 +270,22 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
 <main>
   <div class="hero">
     <div class="wrap">
-      <span class="eyebrow">You scanned it. Good.</span>
-      <h1>Websites, website fixes and CVs.</h1>
-      <p>Start by trying a demo site below. They work like real websites. Then compare the packages, pick one, and message me. If you're not sure which fits, ask and I'll tell you honestly.</p>
-      <div class="jump">
-        <a class="btn" href="#examples">Try a demo site ↓</a>
-        <a class="btn ghost" href="#websites">Prices</a>
-        <a class="btn ghost" href="#fix">Fix my website</a>
-        <a class="btn ghost" href="#cv">CVs</a>
+      <div class="copy">
+        <span class="eyebrow">You scanned it. Good.</span>
+        <h1>Websites, website fixes and CVs.</h1>
+        <p>Start by trying a demo site below. They work like real websites. Then compare the packages, pick one, and message me. If you're not sure which fits, ask and I'll tell you honestly.</p>
+        <div class="jump">
+          <a class="btn" href="#examples">Try a demo site ↓</a>
+          <a class="btn ghost" href="#websites">Prices</a>
+          <a class="btn ghost" href="#fix">Fix my website</a>
+          <a class="btn ghost" href="#cv">CVs</a>
+        </div>
+      </div>
+      <div class="hv" aria-hidden="true">
+        <div class="hv-main"><img class="ph-img" src="img/svc-hero.jpg" alt="" width="1400" height="1750" fetchpriority="high"></div>
+        <div class="hv-small"><img class="ph-img" src="img/svc-laptop-student.jpg" alt="" width="1000" height="667" loading="lazy"></div>
+        <div class="hv-note"><i>✓</i><div><b>Your phone, soon</b>Hi! I found your website on Google. Are you open on Saturday?</div></div>
+        <div class="hv-stamp"><div>from<span>R1,500</span></div></div>
       </div>
     </div>
   </div>
@@ -225,14 +298,31 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
         <p>Book a gym class, add clothes to a cart, open a restaurant's gallery. Everything works. This is what your customers would see.</p>
       </div>
       <div class="demogrid">
-        <a class="demo" href="ex-pro-shop.html"><span class="thumb" style="background:#F6F4EE;color:#1E2318"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif">ubuntu<span style="color:#B5532E">/</span>threads</b><small>Shop · cart · checkout</small><span class="swatches"><span style="background:#2C3E74"></span><span style="background:#3F4F2A"></span><span style="background:#B5532E"></span></span></span><span class="meta"><span class="tbadge t-pro">Pro</span><b>Clothing shop</b></span><span class="go">Try it →</span></a>
-        <a class="demo" href="ex-pro-gym.html"><span class="thumb" style="background:#0F1B33;color:#F2F4FA"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif">PULSE<span style="color:#FF6B57">.</span>FITNESS</b><small>Book &amp; pay for classes</small><span class="pulse"></span></span><span class="meta"><span class="tbadge t-pro">Pro</span><b>Gym bookings</b></span><span class="go">Try it →</span></a>
-        <a class="demo" href="ex-adv-grill.html"><span class="thumb" style="background:radial-gradient(ellipse at 50% 120%,#E9A23B,#C4502A 30%,#16110D 70%);color:#F3E6D6"><i class="dots"></i><b style="font-family:Georgia,serif;font-style:italic">Kasi Grill House</b><small>Menu · gallery · bookings</small></span><span class="meta"><span class="tbadge t-adv">Advanced</span><b>Restaurant</b></span><span class="go">Try it →</span></a>
-        <a class="demo" href="ex-adv-studio.html"><span class="thumb" style="background:#FFFFFF;color:#0E0E0E"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif;text-transform:lowercase">naledi<span style="color:#3D5AFE">.</span>studio</b><small>Portfolio · packages</small><span class="swatches"><span style="background:#C9B8A6"></span><span style="background:#3D5AFE"></span><span style="background:#8FA98A"></span></span></span><span class="meta"><span class="tbadge t-adv">Advanced</span><b>Photographer</b></span><span class="go">Try it →</span></a>
-        <a class="demo" href="ex-basic-salon.html"><span class="thumb" style="background:#FBF3EE;color:#3A1F1A"><i class="dots"></i><b style="font-family:Georgia,serif">Thandi's <i style="color:#C2577A">Braids</i></b><small>Prices · photos · map</small></span><span class="meta"><span class="tbadge t-basic">Basic</span><b>Hair salon</b></span><span class="go">Try it →</span></a>
-        <a class="demo" href="ex-basic-plumber.html"><span class="thumb" style="background:#0B4FD6;color:#FFFFFF"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif;text-transform:uppercase">Mokoena <span style="color:#FF7A1A">Plumbing</span></b><small>Services · call now</small></span><span class="meta"><span class="tbadge t-basic">Basic</span><b>Plumber</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-pro-shop.html"><span class="thumb photo"><img src="img/shop-hoodie.jpg" alt="" loading="lazy" width="900" height="1125"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif">ubuntu<span style="color:#F2A07B">/</span>threads</b><small>Shop · cart · checkout</small></span><span class="meta"><span class="tbadge t-pro">Pro</span><b>Clothing shop</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-pro-gym.html"><span class="thumb photo"><img src="img/gym-hero.jpg" alt="" loading="lazy" width="1400" height="933" style="object-position:50% 30%"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif">PULSE<span style="color:#FF6B57">.</span>FITNESS</b><small>Book &amp; pay for classes</small></span><span class="meta"><span class="tbadge t-pro">Pro</span><b>Gym bookings</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-adv-grill.html"><span class="thumb photo"><img src="img/grill-hero.jpg" alt="" loading="lazy" width="1400" height="933"><i class="dots"></i><b style="font-family:Georgia,serif;font-style:italic">Kasi Grill House</b><small>Menu · gallery · bookings</small></span><span class="meta"><span class="tbadge t-adv">Advanced</span><b>Restaurant</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-adv-studio.html"><span class="thumb photo"><img src="img/studio-wed2.jpg" alt="" loading="lazy" width="1000" height="667" style="object-position:50% 35%"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif;text-transform:lowercase">naledi<span style="color:#8EA2FF">.</span>studio</b><small>Portfolio · packages</small></span><span class="meta"><span class="tbadge t-adv">Advanced</span><b>Photographer</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-basic-salon.html"><span class="thumb photo"><img src="img/salon-hero.jpg" alt="" loading="lazy" width="1200" height="1500" style="object-position:50% 20%"><i class="dots"></i><b style="font-family:Georgia,serif">Thandi's <i style="color:#F4A7C0">Braids</i></b><small>Prices · photos · map</small></span><span class="meta"><span class="tbadge t-basic">Basic</span><b>Hair salon</b></span><span class="go">Try it →</span></a>
+        <a class="demo" href="ex-basic-plumber.html"><span class="thumb photo"><img src="img/plumber-hero.jpg" alt="" loading="lazy" width="1200" height="1500" style="object-position:50% 25%"><i class="dots"></i><b style="font-family:'Archivo Black',sans-serif;text-transform:uppercase">Mokoena <span style="color:#FF9A4D">Plumbing</span></b><small>Services · call now</small></span><span class="meta"><span class="tbadge t-basic">Basic</span><b>Plumber</b></span><span class="go">Try it →</span></a>
       </div>
       <a class="btn ghost cvdemo" href="ex-cv.html">Need a CV instead? See sample CVs →</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="who-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Who I build for</span>
+        <h2 id="who-h">Made for people like you</h2>
+        <p>Small businesses and students around Ga-Rankuwa and Pretoria North. If people already find you on WhatsApp, a website helps the ones who don't know you yet.</p>
+      </div>
+      <div class="people">
+        <article class="person"><span class="tagp">Website</span><div class="pi"><img class="ph-img" src="img/svc-barber.jpg" alt="A barber giving a customer a fade" loading="lazy"></div><div class="pt"><b>The salon &amp; barber</b><span>Prices, photos of your work and a map pin, so new clients walk in already sold.</span></div></article>
+        <article class="person"><span class="tagp">Website</span><div class="pi"><img class="ph-img" src="img/svc-tuckshop.jpg" alt="A smiling shop owner behind her counter" loading="lazy"></div><div class="pt"><b>The shop owner</b><span>Opening hours, what you stock and a WhatsApp button. Show up when people search nearby.</span></div></article>
+        <article class="person"><span class="tagp">Website</span><div class="pi"><img class="ph-img" src="img/svc-owner-apron.jpg" alt="A food business owner checking orders on his phone" loading="lazy"></div><div class="pt"><b>The side hustle</b><span>Take bookings and payments while you work, instead of replying to the same questions all day.</span></div></article>
+        <article class="person"><span class="tagp">CV</span><div class="pi"><img class="ph-img" src="img/svc-grad.jpg" alt="A graduate smiling in her cap and gown" loading="lazy" style="object-position:50% 20%"></div><div class="pt"><b>The graduate</b><span>A clean CV that gets past the 7-second skim and into the interview pile.</span></div></article>
+      </div>
+      <span class="swipe">Swipe →</span>
     </div>
   </section>
 
@@ -332,10 +422,13 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
 
   <section id="fix" aria-labelledby="fix-h">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Already have a website?</span>
-        <h2 id="fix-h">Fix my website</h2>
-        <p>Fixed prices, so you know the cost before I start. Send me your link and I'll tell you which one you need. If your site is beyond saving, I'll say so honestly and quote a new one instead.</p>
+      <div class="sec-media">
+        <div class="sec-head">
+          <span class="eyebrow">Already have a website?</span>
+          <h2 id="fix-h">Fix my website</h2>
+          <p>Fixed prices, so you know the cost before I start. Send me your link and I'll tell you which one you need. If your site is beyond saving, I'll say so honestly and quote a new one instead.</p>
+        </div>
+        <figure><img class="ph-img" src="img/svc-fix-laptop.jpg" alt="Hands working on a laptop next to a phone" loading="lazy"><figcaption>Send the link. I'll check it.</figcaption></figure>
       </div>
       <div class="tcards">
         <article class="tc">
@@ -381,10 +474,13 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
 
   <section id="cv" aria-labelledby="cv-h">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Get the interview</span>
-        <h2 id="cv-h">CVs</h2>
-        <p>Recruiters skim a CV in seconds. Pick how much help you need, and see a sample of each level before you pay.</p>
+      <div class="sec-media">
+        <div class="sec-head">
+          <span class="eyebrow">Get the interview</span>
+          <h2 id="cv-h">CVs</h2>
+          <p>Recruiters skim a CV in seconds. Pick how much help you need, and see a sample of each level before you pay.</p>
+        </div>
+        <figure><img class="ph-img" src="img/svc-interview.jpg" alt="Two women in a job interview at an office table" loading="lazy"><figcaption>Get past the skim. Get the interview.</figcaption></figure>
       </div>
       <div class="tcards">
         <article class="tc">
@@ -442,6 +538,7 @@ footer .wrap{padding-block:20px;color:var(--muted);font-size:14px}
       <span class="copied" id="copied" role="status"></span>
     </div>
     <span>Samuel Olajide</span>
+    <figure class="cphoto" aria-hidden="true"><img class="ph-img" src="img/svc-phone-yellow.jpg" alt="" loading="lazy"></figure>
   </div>
 </section>
 

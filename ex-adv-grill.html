@@ -38,7 +38,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px
 .row{display:flex;flex-wrap:wrap;gap:10px}
 .ph{position:relative;display:flex;align-items:flex-end;padding:10px;color:#fff;font-size:13px}
 .ph span{background:rgba(0,0,0,.5);padding:2px 8px}
-.flame{background:radial-gradient(ellipse at 50% 100%,#E9A23B 0,#C4502A 30%,transparent 60%),radial-gradient(circle at 30% 30%,#4A2E1C,#16110D)}
+.flame{background:radial-gradient(circle at 30% 30%,#4A2E1C,#16110D)}
+.heroph{background:linear-gradient(180deg,rgba(22,17,13,0) 55%,rgba(22,17,13,.6)),url(img/grill-hero.jpg) center/cover}
+.ownerph{background:linear-gradient(180deg,rgba(22,17,13,0) 60%,rgba(22,17,13,.55)),url(img/grill-owners.jpg) 40% center/cover}
+.gallery .ph,.lb .ph{background-size:cover!important;background-position:center!important}
 .hero .ph{aspect-ratio:1;max-width:100%;border-radius:2px}
 .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:44px;border:1px solid var(--line)}
 @media(max-width:640px){.strip{grid-template-columns:1fr}}
@@ -100,7 +103,7 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
         <p>Flame-grilled meat, proper pap and chakalaka, and a Sunday crowd that stays till sunset.</p>
         <div class="row"><button class="btn" type="button" data-go="book">Book a table</button><button class="btn line" type="button" data-go="menu">See the menu</button></div>
       </div>
-      <div class="ph flame heroph" role="img" aria-label="Photo placeholder: meat on the braai" style="overflow:hidden"><canvas class="embers" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%"></canvas><span style="position:relative">Hero photo</span></div>
+      <div class="ph flame heroph" role="img" aria-label="Meat and chicken on the braai" style="overflow:hidden"><canvas class="embers" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%"></canvas><span style="position:relative">Fresh off the fire, every day</span></div>
     </div>
     <div class="strip">
       <div><b>Open 7 days</b>Mon–Thu 11–21 · Fri–Sun 10–23</div>
@@ -145,7 +148,7 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
 
   <section class="view" id="v-about" hidden>
     <div class="about">
-      <div class="ph flame" role="img" aria-label="Photo placeholder: the owners"><span>Owner photo</span></div>
+      <div class="ph flame ownerph" role="img" aria-label="Sipho and Lindiwe cooking together"><span>Sipho &amp; Lindiwe</span></div>
       <div>
         <div class="eyebrow">Our story</div>
         <h2 style="font-size:clamp(34px,5vw,52px);margin:8px 0 14px">Started with one drum braai in 2016.</h2>
@@ -190,17 +193,18 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
   tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.v);});});
   [].forEach.call(document.querySelectorAll('[data-go]'),function(b){b.addEventListener('click',function(){show(b.dataset.go);});});
 
-  var labels=['Short rib','Sunday deck','The fire pit','Platter','DJ set','Chakalaka','Wors on the grill','Family table','Lamb chops','Night lights','Pap & gravy','Birthday crowd'];
+  var labels=['Short rib','The dining room','The fire pit','Shisa nyama platter','Night lights','Steak & salad','Steaks on the grill','Family table','Lamb chops','Red wine & steak','Beef stew','Birthday crowd'];
+  var pics=['shortrib','dining','firepit','platter','night','steaksalad','steaks','feast','lamb','wine','stew','cheers'].map(function(n){return 'url(img/grill-'+n+'.jpg)';});
   var fills=['radial-gradient(circle at 40% 60%,#E9A23B,#4A2E1C)','linear-gradient(160deg,#3A2C21,#C4502A)','radial-gradient(ellipse at 50% 100%,#E9A23B,#C4502A 35%,#16110D 70%)','repeating-linear-gradient(45deg,#5A3A22 0 12px,#7A4E2C 12px 24px)','linear-gradient(200deg,#2B1D3A,#C4502A)','radial-gradient(circle at 60% 40%,#D9773B,#5A2412)','repeating-linear-gradient(90deg,#3B2416 0 8px,#A65A2A 8px 12px)','linear-gradient(120deg,#6B4A2E,#211913)'];
   var gal=document.getElementById('gal');
   labels.forEach(function(l,i){
     var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','Open photo: '+l);
-    var d=document.createElement('div'); d.className='ph'; d.style.background=fills[i%fills.length];
+    var d=document.createElement('div'); d.className='ph'; d.style.background=fills[i%fills.length];d.style.backgroundImage=pics[i];
     var s=document.createElement('span'); s.textContent=l; d.appendChild(s); b.appendChild(d);
     b.addEventListener('click',function(){open(i);}); gal.appendChild(b);
   });
   var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),cur=0;
-  function open(i){cur=(i+labels.length)%labels.length;lbimg.style.background=fills[cur%fills.length];lbimg.innerHTML='';var s=document.createElement('span');s.textContent=labels[cur]+' ('+(cur+1)+' of '+labels.length+')';lbimg.appendChild(s);lb.hidden=false;document.getElementById('lbclose').focus();}
+  function open(i){cur=(i+labels.length)%labels.length;lbimg.style.background=fills[cur%fills.length];lbimg.style.backgroundImage=pics[cur];lbimg.innerHTML='';var s=document.createElement('span');s.textContent=labels[cur]+' ('+(cur+1)+' of '+labels.length+')';lbimg.appendChild(s);lb.hidden=false;document.getElementById('lbclose').focus();}
   document.getElementById('lbclose').onclick=function(){lb.hidden=true;};
   document.getElementById('lbprev').onclick=function(){open(cur-1);};
   document.getElementById('lbnext').onclick=function(){open(cur+1);};

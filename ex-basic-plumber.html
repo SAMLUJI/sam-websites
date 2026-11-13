@@ -26,6 +26,10 @@ h1,h2,h3{font-family:var(--head);font-weight:800;text-transform:uppercase;margin
 .hero h1{font-size:clamp(54px,11vw,120px)}
 .hero h1 span{color:var(--orange)}
 .hero p{margin:0;font-size:20px;max-width:46ch;opacity:.92}
+.heroimg{position:absolute;right:0;top:0;bottom:0;width:48%;z-index:0;background:url(img/plumber-hero.jpg) 50% 25%/cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
+.heroimg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,79,214,.35),transparent 40%)}
+.hero .wrap>*:not(.facts){max-width:58%}
+@media(max-width:760px){.heroimg{position:relative;width:auto;height:300px;-webkit-mask-image:linear-gradient(0deg,transparent,#000 35%);mask-image:linear-gradient(0deg,transparent,#000 35%);order:-1}.hero{display:flex;flex-direction:column}.hero .wrap{padding-top:0;margin-top:-70px}.hero .wrap>*:not(.facts){max-width:none}}
 .callbox{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;background:var(--orange);color:#111;font-family:var(--head);font-weight:800;font-size:22px;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
 .btn.white{background:#fff;color:var(--blue)}
@@ -44,11 +48,11 @@ section{padding-block:44px}
 @media(max-width:760px){.jobs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ph{aspect-ratio:3/4;display:flex;align-items:flex-end;padding:10px;color:#fff;font-weight:600;font-size:14px}
 .ph span{background:rgba(13,27,46,.7);padding:2px 8px}
-.j1{background:linear-gradient(180deg,#2A3B55,#0B4FD6)}
-.j2{background:repeating-linear-gradient(90deg,#7C8BA1 0 18px,#5E6E85 18px 22px)}
-.j3{background:radial-gradient(circle at 50% 40%,#9FB7DA,#244064)}
-.j4{background:linear-gradient(135deg,#FF7A1A,#7A3A0A)}
-.j5{background:repeating-linear-gradient(0deg,#C9D3E0 0 30px,#AEBACB 30px 32px)}
+.j1{background:linear-gradient(180deg,rgba(11,79,214,0) 50%,rgba(13,27,46,.55)),url(img/plumber-geyser.jpg) center/cover}
+.j2{background:linear-gradient(180deg,rgba(11,79,214,0) 50%,rgba(13,27,46,.55)),url(img/plumber-pipes.jpg) center/cover}
+.j3{background:linear-gradient(180deg,rgba(11,79,214,0) 50%,rgba(13,27,46,.55)),url(img/plumber-bathroom.jpg) center/cover}
+.j4{background:linear-gradient(180deg,rgba(11,79,214,0) 50%,rgba(13,27,46,.55)),url(img/plumber-solar.jpg) center/cover}
+.j5{background:linear-gradient(180deg,rgba(11,79,214,0) 50%,rgba(13,27,46,.55)),url(img/plumber-drain.jpg) center/cover}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:720px){.split{grid-template-columns:1fr}}
 .panel{background:var(--card);border-top:6px solid var(--blue);padding:24px;display:flex;flex-direction:column;gap:12px}
@@ -78,6 +82,7 @@ footer .wrap{padding-block:24px}
 <div class="alert"><div class="wrap"><span>Burst pipe? Emergency call-outs 24/7</span><span>Callout fee R350</span></div></div>
 
 <header class="hero">
+  <div class="heroimg" role="img" aria-label="Plumber in a hard hat, ready for the job"></div>
   <div class="wrap">
     <h1>Mokoena<br><span>Plumbing</span></h1>
     <p>Leaks, geysers, blocked drains and new installations in Pretoria North and surrounds. Licensed plumber, 12 years' experience.</p>
@@ -109,11 +114,11 @@ footer .wrap{padding-block:24px}
   <div class="wrap">
     <div class="sec-h"><h2>Recent jobs</h2></div>
     <div class="jobs">
-      <div class="ph j1" role="img" aria-label="Photo placeholder"><span>New geyser</span></div>
-      <div class="ph j2" role="img" aria-label="Photo placeholder"><span>Pipe repair</span></div>
-      <div class="ph j3" role="img" aria-label="Photo placeholder"><span>Bathroom</span></div>
-      <div class="ph j4" role="img" aria-label="Photo placeholder"><span>Solar geyser</span></div>
-      <div class="ph j5" role="img" aria-label="Photo placeholder"><span>Drain unblock</span></div>
+      <div class="ph j1" role="img" aria-label="New geyser installed"><span>New geyser</span></div>
+      <div class="ph j2" role="img" aria-label="Pipe repair"><span>Pipe repair</span></div>
+      <div class="ph j3" role="img" aria-label="Finished bathroom"><span>Bathroom</span></div>
+      <div class="ph j4" role="img" aria-label="Solar geyser on a roof"><span>Solar geyser</span></div>
+      <div class="ph j5" role="img" aria-label="Drain unblocked"><span>Drain unblock</span></div>
     </div>
   </div>
 </section>

@@ -37,6 +37,12 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 @media(max-width:760px){.hero{grid-template-columns:1fr}}
 .hero h1{font-size:clamp(46px,8vw,96px)}
 .hero p{margin:0;color:var(--muted);font-size:18px;max-width:40ch}
+.look{position:relative;margin:0 0 40px;aspect-ratio:21/9;border-radius:18px;overflow:hidden;background:#2C3E74 url(img/shop-look.jpg) 50% 30%/cover}
+.look::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,24,16,.7),rgba(20,24,16,0) 60%)}
+.look div{position:absolute;left:clamp(18px,4vw,44px);bottom:clamp(18px,4vw,40px);z-index:1;color:#F6F4EE;max-width:30ch}
+.look small{display:block;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;opacity:.85}
+.look b{display:block;font-family:var(--display);font-size:clamp(28px,4.5vw,52px);line-height:1;margin-top:6px}
+@media(max-width:700px){.look{aspect-ratio:4/5}.look::after{background:linear-gradient(0deg,rgba(20,24,16,.75),rgba(20,24,16,0) 55%)}}
 .cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .cats button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 16px;min-height:44px;cursor:pointer;font-weight:500}
 .cats button[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:#fff}
@@ -153,6 +159,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <h1>Made in Pretoria. Worn everywhere.</h1>
       <p>Everyday clothing in heavy cotton and local shweshwe prints. Pick a size, add to cart, pay by card or EFT.</p>
     </div>
+    <figure class="look" role="img" aria-label="Model in a black tee at golden hour"><div><small>Summer drop · out now</small><b>Golden hour, heavy cotton.</b></div></figure>
   </section>
 </main>
 
@@ -297,14 +304,14 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 <script>
 (function(){
   var P=[
-    {id:1,n:'Heavy cotton tee',c:'Tops',p:320,bg:'linear-gradient(160deg,#C9C2B0,#6B6452)'},
-    {id:2,n:'Shweshwe overshirt',c:'Tops',p:780,bg:'repeating-radial-gradient(circle at 30% 30%,#2C3E74 0 6px,#4058A0 6px 9px,#2C3E74 9px 14px)',tag:'New'},
-    {id:3,n:'Boxy hoodie',c:'Tops',p:650,was:780,bg:'linear-gradient(200deg,#3F4F2A,#1E2318)',tag:'Sale'},
-    {id:4,n:'Wide-leg chinos',c:'Bottoms',p:590,bg:'linear-gradient(170deg,#B59A72,#5E4A30)'},
-    {id:5,n:'Cargo shorts',c:'Bottoms',p:420,bg:'linear-gradient(140deg,#8C8F6B,#3E4130)'},
-    {id:6,n:'Shweshwe bucket hat',c:'Accessories',p:260,bg:'repeating-linear-gradient(45deg,#7A2E1D 0 6px,#B5532E 6px 12px)',tag:'3 left'},
-    {id:7,n:'Canvas tote',c:'Accessories',p:180,bg:'linear-gradient(180deg,#E7DFCB,#A8977A)'},
-    {id:8,n:'Ribbed beanie',c:'Accessories',p:200,bg:'repeating-linear-gradient(90deg,#4A2A1C 0 5px,#6A3D29 5px 10px)'}
+    {id:1,n:'Heavy cotton tee',c:'Tops',p:320,bg:'#D9D3C4 url(img/shop-tee.jpg) center/cover'},
+    {id:2,n:'Print overshirt',c:'Tops',p:780,bg:'#D9D3C4 url(img/shop-overshirt.jpg) center/cover',tag:'New'},
+    {id:3,n:'Boxy hoodie',c:'Tops',p:650,was:780,bg:'#D9D3C4 url(img/shop-hoodie.jpg) center/cover',tag:'Sale'},
+    {id:4,n:'Wide-leg chinos',c:'Bottoms',p:590,bg:'#D9D3C4 url(img/shop-chinos.jpg) center/cover'},
+    {id:5,n:'Cargo shorts',c:'Bottoms',p:420,bg:'#D9D3C4 url(img/shop-cargo.jpg) center/cover'},
+    {id:6,n:'Camo bucket hat',c:'Accessories',p:260,bg:'#D9D3C4 url(img/shop-bucket.jpg) center/cover',tag:'3 left'},
+    {id:7,n:'Canvas tote',c:'Accessories',p:180,bg:'#D9D3C4 url(img/shop-tote.jpg) center/cover'},
+    {id:8,n:'Ribbed beanie',c:'Accessories',p:200,bg:'#D9D3C4 url(img/shop-beanie.jpg) center/cover'}
   ];
   var cart=[];
   function R(n){return 'R'+n.toLocaleString('en-ZA').replace(/\s/g,',');}
@@ -322,7 +329,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
     P.filter(function(p){return cat==='all'||p.c===cat;}).forEach(function(p){
       var el=document.createElement('article');el.className='prod';
       var sizes=p.c==='Accessories'?'<option>One size</option>':'<option>S</option><option selected>M</option><option>L</option><option>XL</option>';
-      el.innerHTML='<div class="ph" role="img" aria-label="Product photo placeholder" style="background:'+p.bg+'">'+(p.tag?'<span class="tag">'+p.tag+'</span>':'<span></span>')+'</div>'+
+      el.innerHTML='<div class="ph" role="img" aria-label="'+p.n+'" style="background:'+p.bg+'">'+(p.tag?'<span class="tag">'+p.tag+'</span>':'<span></span>')+'</div>'+
         '<h3>'+p.n+'</h3><div class="pr">'+R(p.p)+(p.was?'<s>'+R(p.was)+'</s>':'')+'</div>'+
         '<div class="act"><select id="sz'+p.id+'" aria-label="Size for '+p.n+'">'+sizes+'</select><button class="btn dark" type="button">Add to cart</button></div><div class="added" aria-live="polite"></div>';
       el.querySelector('button').addEventListener('click',function(){

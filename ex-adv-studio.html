@@ -104,22 +104,22 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
         <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="button" data-go="portfolio">See my work</button><button class="btn out" type="button" data-go="enquire">Check my dates</button></div>
       </div>
       <div class="mosaic">
-        <div class="ph" style="background:linear-gradient(170deg,#C9B8A6,#5B4A3E)" role="img" aria-label="Photo placeholder"><span>Graduation</span></div>
-        <div class="ph" style="background:linear-gradient(200deg,#A7B7C9,#3E4E62)" role="img" aria-label="Photo placeholder"><span>Portrait</span></div>
-        <div class="ph" style="background:radial-gradient(circle at 30% 30%,#F4E3C8,#9A7B55)" role="img" aria-label="Photo placeholder"><span>Wedding</span></div>
-        <div class="ph" style="background:linear-gradient(120deg,#2C2C2C,#7A7A7A)" role="img" aria-label="Photo placeholder"><span>Studio</span></div>
-        <div class="ph" style="background:linear-gradient(160deg,#8FA98A,#3B4E37)" role="img" aria-label="Photo placeholder"><span>Outdoor</span></div>
+        <div class="ph" style="background:url(img/studio-grad1.jpg) 50% 20%/cover" role="img" aria-label="Graduate holding her diploma"><span>Graduation</span></div>
+        <div class="ph" style="background:url(img/studio-port2.jpg) 50% 25%/cover" role="img" aria-label="Portrait of a smiling woman in a head wrap"><span>Portrait</span></div>
+        <div class="ph" style="background:url(img/studio-wed2.jpg) 50% 35%/cover" role="img" aria-label="Bride and groom kissing"><span>Wedding</span></div>
+        <div class="ph" style="background:url(img/studio-port3.jpg) 50% 25%/cover" role="img" aria-label="Studio portrait with a flower crown"><span>Studio</span></div>
+        <div class="ph" style="background:url(img/studio-grad4.jpg) 50% 30%/cover" role="img" aria-label="Graduate in a garden"><span>Outdoor</span></div>
       </div>
     </div>
     <div class="hs" id="hs">
       <div class="hs-pin">
         <div class="hs-head"><h2>recent shoots</h2><span class="hs-hint">keep scrolling</span></div>
         <div class="hs-track" id="hstrack">
-          <div class="hs-card"><div class="ph" style="background:linear-gradient(170deg,#C9B8A6,#5B4A3E)"></div><b>Thabo &amp; Kea</b><span>Wedding · Hartbeespoort</span></div>
-          <div class="hs-card"><div class="ph" style="background:linear-gradient(130deg,#6C7FA3,#212C44)"></div><b>SMU Class of '26</b><span>Graduation · Ga-Rankuwa</span></div>
-          <div class="hs-card"><div class="ph" style="background:linear-gradient(140deg,#3D5AFE,#141C52)"></div><b>Bloom Café</b><span>Brand shoot · Pretoria</span></div>
-          <div class="hs-card"><div class="ph" style="background:radial-gradient(circle at 60% 40%,#C7A89A,#4A3329)"></div><b>Lerato</b><span>Portrait · Studio</span></div>
-          <div class="hs-card"><div class="ph" style="background:linear-gradient(200deg,#C3D4C0,#4E6A4A)"></div><b>Nkosi family</b><span>Outdoor · Groenkloof</span></div>
+          <div class="hs-card"><div class="ph" style="background:url(img/studio-wed1.jpg) 50% 40%/cover"></div><b>Thabo &amp; Kea</b><span>Wedding · Hartbeespoort</span></div>
+          <div class="hs-card"><div class="ph" style="background:url(img/studio-grad3.jpg) 50% 30%/cover"></div><b>SMU Class of '26</b><span>Graduation · Ga-Rankuwa</span></div>
+          <div class="hs-card"><div class="ph" style="background:url(img/studio-brand3.jpg) center/cover"></div><b>Bloom Café</b><span>Brand shoot · Pretoria</span></div>
+          <div class="hs-card"><div class="ph" style="background:url(img/studio-port1.jpg) 50% 25%/cover"></div><b>Lerato</b><span>Portrait · Studio</span></div>
+          <div class="hs-card"><div class="ph" style="background:url(img/studio-family.jpg) 50% 35%/cover"></div><b>Nkosi family</b><span>Outdoor · Groenkloof</span></div>
         </div>
       </div>
     </div>
@@ -148,7 +148,7 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
 
   <section class="view" id="v-about" hidden>
     <div class="about">
-      <div class="ph" style="background:linear-gradient(180deg,#D8D2C8,#6A635A)" role="img" aria-label="Photo placeholder: the photographer"><span>Photographer</span></div>
+      <div class="ph" style="background:url(img/studio-photographer.jpg) 50% 40%/cover" role="img" aria-label="Naledi behind the camera"><span>Naledi</span></div>
       <div>
         <h2 style="font-size:clamp(40px,6vw,72px);margin-bottom:20px">hi, I'm naledi.</h2>
         <p>I've been shooting for eight years, starting with my cousins' graduations on a borrowed camera.</p>
@@ -197,16 +197,17 @@ footer .wrap{padding-block:24px;display:flex;justify-content:space-between;gap:1
     ['Graduation',200,'linear-gradient(130deg,#6C7FA3,#212C44)'],['Wedding',280,'radial-gradient(circle at 70% 30%,#FFF4E2,#B39469)'],
     ['Portrait',240,'linear-gradient(170deg,#9E8C80,#2E2622)'],['Brand',260,'linear-gradient(200deg,#C3D4C0,#4E6A4A)']
   ];
+  var pimg=['grad1','wed1','port1','brand1','grad2','wed2','port2','brand2','grad3','wed3','port3','brand3','grad4','wed4','port4','brand4'];items.forEach(function(it,i){it[3]='url(img/studio-'+pimg[i]+'.jpg)';});
   var port=document.getElementById('port'),shown=[];
   function render(f){port.innerHTML='';shown=items.filter(function(it){return f==='all'||it[0]===f;});
     shown.forEach(function(it,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Open '+it[0]+' photo');
-      var d=document.createElement('div');d.className='ph';d.style.height=it[1]+'px';d.style.background=it[2];
+      var d=document.createElement('div');d.className='ph';d.style.height=it[1]+'px';d.style.background=it[2];d.style.backgroundImage=it[3];d.style.backgroundSize='cover';d.style.backgroundPosition='center 30%';
       var s=document.createElement('span');s.textContent=it[0];d.appendChild(s);b.appendChild(d);b.addEventListener('click',function(){open(i);});port.appendChild(b);});document.dispatchEvent(new CustomEvent('port'));}
   render('all');
   [].forEach.call(document.querySelectorAll('#filters button'),function(b){b.addEventListener('click',function(){
     [].forEach.call(document.querySelectorAll('#filters button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});render(b.dataset.f);});});
   var lb=document.getElementById('lb'),img=document.getElementById('lbimg'),cur=0;
-  function open(i){cur=(i+shown.length)%shown.length;img.style.background=shown[cur][2];img.innerHTML='';var s=document.createElement('span');s.textContent=shown[cur][0]+' ('+(cur+1)+' of '+shown.length+')';img.appendChild(s);lb.hidden=false;document.getElementById('lbclose').focus();}
+  function open(i){cur=(i+shown.length)%shown.length;img.style.background=shown[cur][2];img.style.backgroundImage=shown[cur][3];img.style.backgroundSize='contain';img.style.backgroundRepeat='no-repeat';img.style.backgroundPosition='center';img.style.backgroundColor='#111';img.innerHTML='';var s=document.createElement('span');s.textContent=shown[cur][0]+' ('+(cur+1)+' of '+shown.length+')';img.appendChild(s);lb.hidden=false;document.getElementById('lbclose').focus();}
   document.getElementById('lbclose').onclick=function(){lb.hidden=true;};
   document.getElementById('lbprev').onclick=function(){open(cur-1);};
   document.getElementById('lbnext').onclick=function(){open(cur+1);};
